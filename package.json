@@ -7,7 +7,10 @@
   "scripts": {
     "dev": "npm run dev -w web",
     "build": "npm run build -w web",
-    "test": "npm test -w web",
-    "banco": "supabase start -x realtime,imgproxy,studio,edge-runtime,logflare,vector,postgres-meta,supavisor"
+    "test": "node --test \"scripts/**/*.test.mjs\" && npm test -w web",
+    "banco": "supabase start -x realtime,imgproxy,studio,edge-runtime,logflare,vector,postgres-meta,supavisor",
+    "e2e": "npm run e2e -w web",
+    "testar:banco": "supabase test db",
+    "verificar": "npm test && supabase db reset --local && supabase db advisors --local --type security --fail-on error && npm run testar:banco && node scripts/cobertura-banco.mjs && npm run build && npm run e2e"
   }
 }
