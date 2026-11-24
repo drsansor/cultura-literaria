@@ -1,0 +1,101 @@
+:root {
+  --rosa: #ee7bbc;
+  --marrom: #5a3a34;
+  --marrom-escuro: #3a211d;
+  --creme: #fff6eb;
+  --vinho: #8c2f45;
+  --display: "Rammetto One", serif;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font: 500 1rem/1.5 Montserrat, sans-serif;
+  color: var(--marrom-escuro);
+  background: var(--creme);
+}
+
+.login { background: #2c1b19 url("/estante.jpg") center top / 1131px; }
+
+.login main {
+  width: min(100% - 2rem, 30rem);
+  margin: 0 auto;
+  padding: 1.5rem 0 2.5rem;
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.login h1 { margin: 0; width: min(100%, 25rem); }
+.login h1 svg { display: block; width: 100%; overflow: visible; }
+.titulo { font: 104px var(--display); fill: var(--rosa); }
+.subtitulo { font: 700 42px Montserrat, sans-serif; fill: #fff; }
+
+.quadro {
+  width: 100%;
+  padding: clamp(1.5rem, 6vw, 2.5rem);
+  display: grid;
+  gap: 1.25rem;
+  background: #fff;
+  border-radius: 1.75rem;
+}
+
+.quadro h2 {
+  margin: 0;
+  font: 1.75rem/1.2 var(--display);
+  color: var(--marrom);
+  text-align: center;
+}
+
+.quadro label { display: grid; gap: 0.375rem; font-weight: 700; }
+.quadro small { font-weight: 500; }
+.quadro p { margin: 0; text-align: center; }
+
+.quadro input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-weight: 500;
+  color: inherit;
+  background: var(--creme);
+  border: 2px solid var(--marrom);
+  border-radius: 0.75rem;
+}
+
+.botao {
+  padding: 0.875rem 1.5rem;
+  font: 700 1.125rem/1.2 Montserrat, sans-serif;
+  color: var(--marrom-escuro);
+  background: var(--rosa);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.botao:hover { background: #f295ca; }
+button:disabled { opacity: 0.6; cursor: wait; }
+
+:focus-visible { outline: 3px solid var(--vinho); outline-offset: 2px; }
+
+#mensagem:empty { display: none; }
+.erro { color: var(--vinho); font-weight: 700; }
+
+.troca button {
+  padding: 0.25rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--vinho);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.logo { max-width: 10rem; max-height: 8rem; }
+
+.provisorio { padding: 3rem 1.5rem; text-align: center; }
+.provisorio h1 { font: 2.25rem/1.2 var(--display); color: var(--marrom); }

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Entrar | A Crise Literária no Brasil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Rammetto+One&display=swap" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="login">
+    <main>
+      <h1>
+        <svg viewBox="0 0 600 310" role="img" aria-label="A Crise Literária no Brasil">
+          <path id="arco-1" d="M 40 130 Q 300 50 560 130" fill="none" />
+          <path id="arco-2" d="M 0 265 Q 300 175 600 265" fill="none" />
+          <text class="titulo" text-anchor="middle"><textPath href="#arco-1" startOffset="50%">A Crise</textPath></text>
+          <text class="titulo" text-anchor="middle"><textPath href="#arco-2" startOffset="50%">Literária</textPath></text>
+          <text class="subtitulo" x="300" y="298" text-anchor="middle">No Brasil</text>
+        </svg>
+      </h1>
+
+      <!-- method="post" impede que a senha vá para a URL se o JS não carregar -->
+      <form id="form" class="quadro" method="post">
+        <h2 id="titulo-form">Entrar</h2>
+        <label>
+          E-mail
+          <input name="email" type="email" autocomplete="email" required />
+        </label>
+        <label>
+          Senha
+          <input name="senha" type="password" autocomplete="current-password" required />
+          <small id="dica-senha" hidden>Use pelo menos 8 caracteres.</small>
+        </label>
+        <p id="mensagem" role="status"></p>
+        <button id="enviar" class="botao">Entrar</button>
+        <p class="troca">
+          <span id="pergunta">Ainda não tem conta?</span>
+          <button id="trocar" type="button">Criar conta</button>
+        </p>
+      </form>
+
+      <!-- Basta colocar o arquivo em web/public/logo.png -->
+      <img class="logo" src="/logo.png" alt="Logo do grupo" onerror="this.remove()" />
+    </main>
+    <script type="module" src="/src/login.js"></script>
+  </body>
+</html>

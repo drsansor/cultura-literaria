@@ -1,0 +1,13 @@
+{
+  "name": "crise-literaria",
+  "private": true,
+  "workspaces": [
+    "web"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w web",
+    "build": "npm run build -w web",
+    "test": "npm test -w web",
+    "banco": "supabase start -x realtime,imgproxy,studio,edge-runtime,logflare,vector,postgres-meta,supavisor"
+  }
+}
