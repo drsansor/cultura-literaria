@@ -29,6 +29,7 @@ async function ator(nome, perfil) {
 
 const ctx = {
   servico,
+  lixo: [], // linhas semeadas, apagadas no fim
   anon: { cliente: createClient(url, publicavel, opcoes) },
   semPerfil: await ator("semPerfil"),
   ana: await ator("ana", {}),
@@ -40,7 +41,20 @@ const ctx = {
 const exclusao = await servico.auth.admin.deleteUser(ctx.excluida.id);
 if (exclusao.error) throw exclusao.error;
 
+// Semeia na ordem da matriz (uma tabela usa as linhas da anterior) e antes de registrar qualquer teste:
+// um await depois disso deixaria o `after` rodar cedo demais.
+const chavesSemeadas = {};
+for (const [nome, regra] of Object.entries(tabelas)) {
+  chavesSemeadas[nome] = await regra.semear(ctx);
+}
+// [tabela que aponta, tabela apontada, nome da FK], só entre tabelas de public.
+const relacoes = sql(`select conrelid::regclass || '|' || confrelid::regclass || '|' || conname from pg_constraint
+  where contype = 'f' and connamespace = 'public'::regnamespace and confrelid in (select oid from pg_class where relnamespace = 'public'::regnamespace)`)
+  .map((linha) => linha.split("|").map((texto) => texto.replace(/^public\./, "")));
+
+
 after(async () => {
+  for (const [nome, chave] of ctx.lixo.reverse()) await servico.from(nome).delete().match(chave);
   for (const id of criados) await servico.auth.admin.deleteUser(id);
 });
 
@@ -59,9 +73,9 @@ test("tudo que está exposto em public está na matriz", () => {
 });
 
 for (const [nome, regra] of Object.entries(tabelas)) {
-  describe(nome, async () => {
+  describe(nome, () => {
     const colunas = colunasDe(nome);
-    const chave = await regra.semear(ctx);
+    const chave = chavesSemeadas[nome];
     const campos = Object.keys(chave.bia);
     const em = (consulta, onde) => consulta.match(onde);
     const de = (quem) => ctx[quem].cliente.from(nome);
@@ -103,6 +117,23 @@ for (const [nome, regra] of Object.entries(tabelas)) {
         const resposta = await de(quem).select(campos.join());
         permitido(resposta, quem);
         assert.deepEqual(resposta.data, [], `${quem} não lê nada`);
+      }
+    });
+
+    test("relacionamento não mostra o que a leitura direta nega", async () => {
+      for (const [de_, para, fk] of relacoes) {
+        const outra = de_ === nome ? para : para === nome ? de_ : null;
+        if (!outra) continue;
+        for (const coluna of colunasDe(outra)) {
+          const resposta = await de("ana").select(`${campos[0]}, ${outra}!${fk}(${coluna})`).limit(1);
+          if (tabelas[outra].ler.includes(coluna)) permitido(resposta, `${outra}.${coluna}`);
+          else negado(resposta, `${outra}.${coluna}`);
+        }
+        for (const quem of ["semPerfil", "excluida"]) {
+          const resposta = await de(quem).select(`${campos[0]}, ${outra}!${fk}(${tabelas[outra].ler[0]})`);
+          assert.deepEqual(resposta.data, [], `${quem} lê ${outra}`);
+        }
+        negado(await de("anon").select(`${campos[0]}, ${outra}!${fk}(${tabelas[outra].ler[0]})`), `anon lê ${outra}`);
       }
     });
 
@@ -167,6 +198,8 @@ for (const [nome, regra] of Object.entries(tabelas)) {
       permitido(await de(quem).insert(regra.nova(ctx, quem)), `${quem} insere`);
     });
 
+    for (const [titulo, ataque] of Object.entries(regra.extras ?? {})) test(titulo, () => ataque(ctx, { de, real, chave, negado, permitido }));
+
     test("apagar", async () => {
       const antes = await real(chave.bia);
       for (const quem of ["ana", "semPerfil", "excluida", ...(regra.apagar === "dono e admin" ? [] : ["admin"])]) {
@@ -192,8 +225,29 @@ for (const [nome, regra] of Object.entries(tabelas)) {
         assert.equal((await real(chave.bia)).length, 0, "admin apagou a de bia");
       }
     });
+  });
+}
 
-    for (const [titulo, ataque] of Object.entries(regra.extras ?? {})) test(titulo, () => ataque(ctx, { de, real, chave, negado, permitido }));
+for (const [nome, regra] of Object.entries(views)) {
+  describe(nome, () => {
+    const de = (quem) => ctx[quem].cliente.from(nome);
+    test("só leitura, só para quem tem perfil", async () => {
+      assert.deepEqual(colunasDe(nome), regra.ler);
+      const resposta = await de("ana").select("*");
+      permitido(resposta, "ana lê");
+      assert.notEqual(resposta.data.length, 0);
+      for (const quem of ["semPerfil", "excluida"]) assert.deepEqual((await de(quem).select("*")).data, [], quem);
+      for (const coluna of regra.ler) negado(await de("anon").select(coluna), `anon lê ${coluna}`);
+      for (const quem of ["anon", "ana", "admin"]) {
+        for (const [acao, consulta] of [
+          ["inserir", de(quem).insert({ [regra.ler[1]]: "x" })],
+          ["alterar", de(quem).update({ [regra.ler[2]]: "x" }).not("id", "is", null)],
+          ["apagar", de(quem).delete().not("id", "is", null)],
+        ]) {
+          assert.notEqual((await consulta).error, null, `${quem} conseguiu ${acao}`);
+        }
+      }
+    });
   });
 }
 
