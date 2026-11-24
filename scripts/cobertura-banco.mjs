@@ -1,6 +1,6 @@
-import { execFileSync } from "node:child_process";
 import { readdirSync, readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
+import { sql } from "./supabase-local.mjs";
 
 const CATALOGO = `
   select policyname from pg_policies where schemaname in ('public', 'storage')
@@ -28,15 +28,13 @@ export function semTeste(objetos, sql) {
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const objetos = execFileSync("docker", ["exec", "supabase_db_crise-literaria", "psql", "-U", "postgres", "-Atc", CATALOGO], { encoding: "utf8" })
-    .split("\n")
-    .filter(Boolean);
+  const objetos = sql(CATALOGO);
   const pasta = new URL("../supabase/tests/", import.meta.url);
-  const sql = readdirSync(pasta)
+  const testes = readdirSync(pasta)
     .filter((nome) => nome.endsWith(".test.sql"))
     .map((nome) => readFileSync(new URL(nome, pasta), "utf8"))
     .join("\n");
-  const faltam = semTeste(objetos, sql);
+  const faltam = semTeste(objetos, testes);
   if (faltam.length) {
     console.error(`Objetos do banco sem teste:\n${faltam.join("\n")}`);
     process.exit(1);

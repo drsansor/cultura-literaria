@@ -24,3 +24,9 @@ export async function esperar() {
     }
   }
 }
+
+export function sql(comando) {
+  return execFileSync("docker", ["exec", "supabase_db_crise-literaria", "psql", "-U", "postgres", "-v", "ON_ERROR_STOP=1", "-Atc", comando], { encoding: "utf8" })
+    .split("\n")
+    .filter(Boolean);
+}

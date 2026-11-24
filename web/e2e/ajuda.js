@@ -40,12 +40,18 @@ export const test = base.extend({
 
 export { expect };
 
-export async function criarUsuario() {
+export async function criarUsuario({ perfil = true } = {}) {
   const email = `teste-${randomUUID()}@example.com`;
   const senha = "senha-boa-123";
   const { data, error } = await admin.auth.admin.createUser({ email, password: senha, email_confirm: true });
   if (error) throw error;
-  return { id: data.user.id, email, senha };
+  const { id } = data.user;
+  if (!perfil) return { id, email, senha };
+
+  const usuario = `teste_${id.replaceAll("-", "").slice(0, 16)}`;
+  const resposta = await admin.from("perfis").insert({ id, nome: "Pessoa Teste", usuario });
+  if (resposta.error) throw resposta.error;
+  return { id, email, senha, usuario };
 }
 
 export async function preencher(page, email, senha) {
