@@ -18,6 +18,19 @@ const perfil = await exigirPerfil();
 let aberto = null;
 let minha = null;
 
+// O município vem do fim da localização: "Rua A, 1, Centro, Niterói - RJ".
+const municipio = ({ localizacao }) => localizacao.match(/([^,]+) - [A-Z]{2}$/)?.[1].trim();
+
+function filtrar(locais, itens) {
+  const nomes = [...new Set(locais.map(municipio).filter(Boolean))].sort((a, b) => a.localeCompare(b, "pt-BR"));
+  if (nomes.length < 2) return;
+  $("municipio").append(...nomes.map((nome) => new Option(nome, nome)));
+  $("municipio").addEventListener("change", ({ target }) => {
+    itens.forEach((item, i) => { item.hidden = target.value !== "" && municipio(locais[i]) !== target.value; });
+  });
+  $("filtro").hidden = false;
+}
+
 function resumir({ media, total }) {
   if (!total) return "Ainda sem avaliações";
   const nota = media.toLocaleString("pt-BR", { minimumFractionDigits: 1 });
@@ -112,7 +125,10 @@ async function mostrar() {
   titular(lista.titulo);
   try {
     const locais = await conferir(supabase.from("locais_com_nota").select("id, nome, localizacao, media, total").eq("tipo", tipo).order("nome"));
-    $("selos").replaceChildren(...locais.map(selo));
+    const itens = locais.map(selo);
+    $("selos").replaceChildren(...itens);
+    filtrar(locais, itens);
+    $("fonte").hidden = tipo !== "biblioteca" || !locais.length;
     avisar($("mensagem"), locais.length ? "" : lista.vazio);
   } catch (erro) {
     avisar($("mensagem"), mensagemDeErro(erro), true);

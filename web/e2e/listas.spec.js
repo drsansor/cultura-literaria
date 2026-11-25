@@ -14,11 +14,16 @@ async function abrir(page, endereco) {
 test("importar duas vezes não duplica nem apaga o que já existe", async () => {
   const extra = { tipo: "sebo", nome: `Extra ${randomUUID()}`, localizacao: "R" };
   await comLinhas("locais", [extra], async () => {
-    const contar = async (tabela) => (await admin.from(tabela).select("*", { count: "exact", head: true }).in("nome", [...dados.bibliotecas, ...dados.sebos, ...dados.influenciadores].map(({ nome }) => nome))).count;
+    const listas = { locais: [...dados.bibliotecas, ...dados.sebos], influenciadores: dados.influenciadores };
+    const total = { locais: listas.locais.length, influenciadores: listas.influenciadores.length };
+    // Conta aqui, e não no banco: centenas de nomes não cabem no endereço da consulta.
+    const contar = async (tabela) => {
+      const nomes = new Set(listas[tabela].map(({ nome }) => nome));
+      return (await admin.from(tabela).select("nome")).data.filter(({ nome }) => nomes.has(nome)).length;
+    };
     for (let vez = 0; vez < 2; vez++) {
-      expect(await importar(admin, dados)).toEqual({ locais: 6, influenciadores: 1 });
-      expect(await contar("locais")).toBe(6);
-      expect(await contar("influenciadores")).toBe(1);
+      expect(await importar(admin, dados)).toEqual(total);
+      for (const tabela of Object.keys(listas)) expect(await contar(tabela)).toBe(total[tabela]);
     }
     expect((await admin.from("locais").select("id").eq("nome", extra.nome)).data).toHaveLength(1);
   });
@@ -32,7 +37,12 @@ for (const [tipo, titulo, lista, outra] of [
     await abrir(page, `/locais.html?tipo=${tipo}`);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(titulo);
     await expect(page).toHaveTitle(`${titulo} | A Crise Literária no Brasil`);
-    for (const { nome, localizacao } of lista) {
+    await expect(selos(page).first()).toBeVisible();
+    const textos = await selos(page).evaluateAll((itens) => itens.map((item) => `${item.querySelector("h2").textContent}|${item.querySelector("a").textContent}`));
+    const texto = ({ nome, localizacao }) => `${nome}|${localizacao}`;
+    expect(textos).toEqual(expect.arrayContaining(lista.map(texto)));
+    expect(outra.map(texto).filter((local) => textos.includes(local))).toEqual([]);
+    for (const { nome, localizacao } of lista.slice(0, 3)) {
       const item = selo(page, nome);
       await expect(item).toHaveAttribute("data-local", /^[0-9a-f-]{36}$/);
       const mapa = item.getByRole("link", { name: localizacao });
@@ -41,10 +51,34 @@ for (const [tipo, titulo, lista, outra] of [
       await expect(mapa).toHaveAttribute("rel", "noopener noreferrer");
       await expect(item.getByRole("button", { name: `Comentários de ${nome}` })).toBeVisible();
     }
-    for (const { nome } of outra) await expect(selo(page, nome)).toHaveCount(0);
+    await expect(page.getByRole("link", { name: "Mapa das Bibliotecas Públicas" })).toBeVisible({ visible: tipo === "biblioteca" });
+    // A lista inteira é alta demais para uma imagem.
+    if (tipo === "biblioteca") await page.getByLabel("Município").selectOption("Niterói");
     await conferirPagina(page, `${tipo}s`);
   });
 }
+
+test("filtro por município mostra só as bibliotecas dele", async ({ page }) => {
+  await abrir(page, "/locais.html?tipo=biblioteca");
+  const filtro = page.getByLabel("Município");
+  await expect(filtro).toBeVisible();
+  const total = await page.locator(".selo:visible").count();
+  expect(total).toBeGreaterThanOrEqual(dados.bibliotecas.length);
+  const emNiteroi = dados.bibliotecas.filter(({ localizacao }) => localizacao.endsWith(", Niterói - RJ"));
+  for (const [municipio, esperados] of [["Niterói", emNiteroi], ["Três Rios", dados.bibliotecas.filter(({ localizacao }) => localizacao.endsWith("Três Rios - RJ"))]]) {
+    await filtro.selectOption(municipio);
+    const nomes = await page.locator(".selo:visible h2").allTextContents();
+    expect(nomes.sort()).toEqual(esperados.map(({ nome }) => nome).sort());
+  }
+  await filtro.selectOption("");
+  await expect(page.locator(".selo:visible")).toHaveCount(total);
+  const opcoes = await filtro.locator("option").allTextContents();
+  expect(opcoes[0]).toBe("Todos");
+  expect(opcoes.slice(1)).toEqual([...opcoes.slice(1)].sort((a, b) => a.localeCompare(b, "pt-BR")));
+  await page.goto("/locais.html?tipo=sebo");
+  await expect(selos(page).first()).toBeVisible();
+  await expect(filtro).toBeHidden();
+});
 
 test("nome e localização enormes não estouram o selo", async ({ page }) => {
   const nome = "W".repeat(120);

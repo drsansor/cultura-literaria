@@ -68,7 +68,7 @@ test("duas pessoas, do cadastro à exclusão, só por cliques", async ({ page, b
 
   // Ana: listas e avaliação
   await ir(page, "Lista de bibliotecas", "Lista de Bibliotecas");
-  await page.getByRole("button", { name: "Comentários de Biblioteca Exemplo 1" }).click();
+  await page.getByRole("button", { name: "Comentários de Biblioteca Parque Estadual (BPE-RJ)" }).click();
   const avaliacao = page.getByRole("dialog");
   await avaliacao.getByRole("radio", { name: "5", exact: true }).check();
   await avaliacao.getByLabel("Comentário").fill(unico("Gostei"));

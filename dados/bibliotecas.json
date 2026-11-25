@@ -1,14 +1,1058 @@
 [
   {
-    "nome": "Biblioteca Exemplo 1",
-    "localizacao": "Rua Exemplo, 1, Cidade Exemplo"
+    "nome": "Biblioteca Municipal Professor Guilherme Briggs",
+    "localizacao": "Praça Marquês de Tamandaré, nº 116, Centro, Angra dos Reis - RJ"
   },
   {
-    "nome": "Biblioteca Exemplo 2",
-    "localizacao": "Rua Exemplo, 2, Cidade Exemplo"
+    "nome": "Biblioteca Municipal Prof. Junito de Souza Brandão",
+    "localizacao": "Rua Anibal Cortes s/n, Centro, Aperibé - RJ"
   },
   {
-    "nome": "Biblioteca Exemplo 3",
-    "localizacao": "Rua Exemplo, 3, Cidade Exemplo"
+    "nome": "Biblioteca Comunitária D. Marly Basto",
+    "localizacao": "Rua República do Paraguai, s/n, Parque Hotel, Araruama - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Carlos Élio Vogas",
+    "localizacao": "Praça Antônio Maria Raposo, s/n, Centro, Araruama - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Magnólia Rego Marinho",
+    "localizacao": "Rua Dr. João Veigas Soares, nº 60, Centro, Areal - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Francisca Maria de Souza",
+    "localizacao": "Rua Djanira da Mota e Silva, s/n, Praça da Ferradura, Armação dos Búzios - RJ"
+  },
+  {
+    "nome": "Biblioteca na Feira Livre Periurbana da Ferradura",
+    "localizacao": "Praça da Ferradura, Rua Vinte e Um, 1688-1820, Village de Búzios, Armação dos Búzios - RJ"
+  },
+  {
+    "nome": "Biblioteca Ponto de Leitura e Sarau da Praça",
+    "localizacao": "Praça da Ferradura, Av. Parque, 160, Village de Búzios, Armação dos Búzios - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Victorino Carriço",
+    "localizacao": "Av. Liberdade, s/n, Praia Grande, Arraial do Cabo - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Rosemar Pimentel",
+    "localizacao": "Rua Dr. Luis Barbosa nº 200, Matadouro, Barra do Piraí - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Adelaide Cunha Franco",
+    "localizacao": "Palácio Barão de Guapy, Praça da Bandeira, s/n, Centro, Barra Mansa - RJ"
+  },
+  {
+    "nome": "Biblioteca Entrideal",
+    "localizacao": "Rua Mauá 521, São Bernardo, Belford Roxo - RJ"
+  },
+  {
+    "nome": "Biblioteca Geraldo Barbabé da Silva",
+    "localizacao": "Estrada Circular, 300 - Chácara Santos Antonio, Parque São Vicente, Belford Roxo - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Jornalista Tim Lopes",
+    "localizacao": "Av. Bob Kenedy, s/n, Nova Piam, Belford Roxo - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal João XXIII",
+    "localizacao": "Rua Mozar Serpa de Carvalho, 190, Centro, Bom Jardim - RJ"
+  },
+  {
+    "nome": "Biblioteca Rural de Artes Visuais",
+    "localizacao": "Sítio Córrego de Santo Antônio, s/n, Barra Alegre, Bom Jardim - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Rogério Gonçalves Figueiredo",
+    "localizacao": "Rua Expedicionário Paulo Moreira s/n, Centro, Bom Jesus do Itabapoana - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Prof. Walter Nogueira",
+    "localizacao": "Praça Dom Pedro, 47, Centro, Cabo Frio - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária em Nós",
+    "localizacao": "Rua Reginaldo José da Silva, nº 432, Ganguri de Cima, Cachoeiras de Macacu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Filhos do Leão",
+    "localizacao": "Rua Manoel Martinez, 178, Ganguri de Cima, Cachoeiras de Macacu - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Cônego Leocílio Nunes",
+    "localizacao": "Av. Governador Roberto Silveira, nº 146, Campo Prado, Cachoeiras de Macacu - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Poeta Manoel Baptista",
+    "localizacao": "Rua José de Souza Carvalho, 110, Centro, Cambuci - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Nilo Peçanha",
+    "localizacao": "Rua Alvarenga Filho s/n - Praça da Bandeira (Palácio da Cultura), Centro, Campos dos Goytacazes - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Acácio Ferreira Dias",
+    "localizacao": "Rua Maestro Joaquim Antônio Naegele s/n, Centro, Cantagalo - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Clarinda Faver Bittencourt",
+    "localizacao": "Rua Joaquim Ferreira Costa, s/n, São Sebastião do Paraíba - 4º Distrito, Cantagalo - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal de Boa Sorte",
+    "localizacao": "Rua Custódio Marques, s/n, Boa Sorte - 5º Distrito, Cantagalo - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Jornalista José Naegele",
+    "localizacao": "Praça Antônio Felipe Gaspary, s/n, Euclidelândia - 3º Distrito, Cantagalo - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Judith Nunes Ribeiro",
+    "localizacao": "Santa Rita da Floresta, s/n, 2º Distrito, Cantagalo - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Professora Elma Vieira Privatti Caldeira",
+    "localizacao": "Rua Coronel Salgueiro, nº 87, Centro, Cardoso Moreira - RJ"
+  },
+  {
+    "nome": "Biblioteca Cultural Evaldo Pontes",
+    "localizacao": "Rua Senador Dantas, 578, Centro, Carmo - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Padre Aprígio",
+    "localizacao": "Praça Princesa Isabel, 92, Centro, Carmo - RJ"
+  },
+  {
+    "nome": "Biblioteca Casa de Leitura Casimiro de Abreu-Projeto Leitura Viva",
+    "localizacao": "Rua Andrade e Silva, 1683 A, Vila Nova, Casimiro de Abreu - RJ"
+  },
+  {
+    "nome": "Biblioteca Ponto de Leitura Ypuca",
+    "localizacao": "Estrada do Macharet, s/n, Aldeia Velha, Casimiro de Abreu - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Carlos Drummond de Andrade",
+    "localizacao": "Rodovia Amaral Peixoto, 115, Barra de São João, Casimiro de Abreu - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Tiradentes",
+    "localizacao": "Praça Padre Francisco Maria Talles, nº 10, Centro, Casimiro de Abreu - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Maria Aparecida Bravo Xavier",
+    "localizacao": "Praça Manoel dos Santos, nº 291, Mont'Serraat/ Casa do Turista, Comendador Levy Gasparian - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Sete de Setembro",
+    "localizacao": "Rua Maria Adelaide, nº 186, Vila Nova, Conceição de Macabu - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Ítalo Mileno Lopes",
+    "localizacao": "Rua Raul Veiga, 135, Centro, Cordeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Themis Alvares Gomes",
+    "localizacao": "Praça Governador Portela s/n, Centro, Duas Barras - RJ"
+  },
+  {
+    "nome": "Biblioteca Arthur Moreira",
+    "localizacao": "Rua João Hercílio Gross, nº 171, Casa 01, Parque Uruguaiana, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Balaio de Leitura",
+    "localizacao": "Rua Onofre Silva, s/n - Vila Mª Helena, Jardim Primavera, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Casa de Dona Terezinha",
+    "localizacao": "Rua Edson Santana, 61, Parque Muisa, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Fonte do Saber",
+    "localizacao": "Rua Projetada c,0 LT 03 e 10 Qd - 272 - Sala 1, Parada Morabi, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Getúlio Cabral",
+    "localizacao": "Rua Onze de Junho, Lt13, Qd8, Vila Getúlio Cabral, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Gigi Guerra",
+    "localizacao": "Rua La Rouche Foulcalt nº 151, Jardim Primavera, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Josimar Coelho da Silva",
+    "localizacao": "Rua Agostinho de Oliveira, nº 991 fundos (esquina com Rua Baical), Jardim Santana do Pilar, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Manns",
+    "localizacao": "Rua Carlos Maia, nº 08, Saracuruna - Parque João Pessoa, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Rodrigo Santana",
+    "localizacao": "Rua Pedro Jerônimo de Souza, nº 42, Paciência, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Solano Trindade",
+    "localizacao": "Rua Visconde de Barbacena, nº 856, Saracuruna, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Varanda Literária Maria de Lourdes Miranda",
+    "localizacao": "Rua José Fischiman, nº 655, Saracuruna - Parque Adelaide, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Vila Aracy",
+    "localizacao": "Rua Américo Clark Leite, s/n - Vila Aracy, Parada Angélica, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Ferreira Gullar",
+    "localizacao": "Praça Engenheiro Leão Moura, s/n, Xerém, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Governador Leonel Brizola",
+    "localizacao": "Av. Governador Leonel Brizola s/n Praça do Pacificador, Centro, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Ronsagêla Rosa",
+    "localizacao": "Rua Santo Elías, 13, Divino, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Tapete Literário",
+    "localizacao": "Av. Primavera, nº 761, Jardim Primavera, Duque de Caxias - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Corintho de Souza",
+    "localizacao": "Praça Roger Magalhães s/n, Centro, Engenheiro Paulo de Frontin - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Francisco da Silva Cyríaco",
+    "localizacao": "Rua Júpiter, nº 84, Vila Olímpica, Guapimirim - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Professor Elysio Pacheco Paes",
+    "localizacao": "Praça José Gama Filho (Praça Nova da Estação), Estação, Iguaba Grande - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Conceição Maria Lopes",
+    "localizacao": "Rua C, lote P, Quadra 36, Granjas Cabuçu, Itaboraí - RJ"
+  },
+  {
+    "nome": "Biblioteca Joaquim Manoel de Macedo - Secretaria Municipal de Cultura",
+    "localizacao": "Praça Marechal Floriano Peixoto, nº 39, Centro, Itaboraí - RJ"
+  },
+  {
+    "nome": "Biblioteca Professora Rilma Alvarenga Rodrigues",
+    "localizacao": "Estação Cidadania (Praça Ceus), Esquina da Rua Hiçda Araújo com Av. Genésio da Costa Cotrim, Nova Cidade, Itaboraí - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Machado de Assis",
+    "localizacao": "Av. Prefeito Ismael Cavalcanti, s/n, Centro, Itaguaí - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Machado de Assis",
+    "localizacao": "Rodovia Br- 356, Km 107, Cimento Paraíso, Italva - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Professora Otacília Barbosa Figueira",
+    "localizacao": "Praça Rui Barbosa s/n, Centro, Itaocara - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Dona Mariúcha",
+    "localizacao": "Av. Expedicionários, nº 150, Centro, Itatiaia - RJ"
+  },
+  {
+    "nome": "Biblioteca Deputado Luiz Eduardo Maron",
+    "localizacao": "Av. Tancredo Neves, s/n, Parque Mucaja, Japeri - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Carlos de Souza",
+    "localizacao": "Rua Cel. Emídio Lemos, 461, Centro, Japeri - RJ"
+  },
+  {
+    "nome": "Biblioteca CIEMH2",
+    "localizacao": "Rua Eleosina Pereira de Queiroz Matoso, nº 105, Sol e Mar, Macaé - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Córrego do Ouro",
+    "localizacao": "Av. Miguel Peixoto Guimarães, s/n, Córrego do Ouro, Macaé - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Dr. Télio Barreto",
+    "localizacao": "Rua Teixeira Gouveia, nº 634, Centro, Macaé - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Henriqueta Maroti",
+    "localizacao": "Rua Alfredo Tanus, s/n, Glicério, Macaé - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Profa. Tarsila Polare",
+    "localizacao": "Rua L, 70, Parque Aeroporto, Macaé - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Maria Ilza Rocha de Almeida",
+    "localizacao": "Avenida Jose Malaquias, s/n CIEP Honório Peçanha, Centro, Macuco - RJ"
+  },
+  {
+    "nome": "Biblioteca Ana Raul",
+    "localizacao": "Estrada União e Indústria, 313, Ponte Preta (Vila Inhomirim), Magé - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Renato Peixoto dos Santos",
+    "localizacao": "Avenida Padre Anchieta - 202, Centro, Magé - RJ"
+  },
+  {
+    "nome": "Biblioteca Sala de Leitura Alegria de Ler",
+    "localizacao": "Rua Laura Magalhães Teixeira, 893, Britador, Magé - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Ary Parreiras",
+    "localizacao": "Rua Coronel Moreira da Silva, nº 232, Centro, Mangaratiba - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Constantino Paleólogo",
+    "localizacao": "Rua Santana, nº 80, Centro - Itacuruça, Mangaratiba - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Frei Afonso Jorge Braga",
+    "localizacao": "Av. Nações Unidas, s/n, Centro - Muriqui, Mangaratiba - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Professora Leonor Leite Bastos de Souza",
+    "localizacao": "Rua Alferes Gomes, s/n, Centro, Maricá - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Guiomar Rocha Rinaldi",
+    "localizacao": "Rua Maria Stella de Almeida Moura, nº 57, Centro, Mendes - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Oscar Romero",
+    "localizacao": "Rua Elpídio 530, Centro, Mesquita - RJ"
+  },
+  {
+    "nome": "Biblioteca Mundo Novo",
+    "localizacao": "Rua Adolfo de Albuquerque, 109, Chatuba, Mesquita - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Adalmar Corrêa da Silva",
+    "localizacao": "Rua Dr. Osório de Almeida, s/n, Pórtico Abraham Medina, Miguel Pereira - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Esther Malheiros Maciokas",
+    "localizacao": "Rua Francisco Antônio Marinho Andreiolo, nº 380, Conrado, Miguel Pereira - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Julieta Damaceno",
+    "localizacao": "Travessa Jamil Cardoso s/n, Centro, Miracema - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Luiz Carlos Machado",
+    "localizacao": "Rua Intendente Sranklin Rabello, nº 8, Sindicato, Natividade - RJ"
+  },
+  {
+    "nome": "Biblioteca Semeando o Saber",
+    "localizacao": "Rua Antonio Joao Mendonça s/n, Centro, Nilópolis - RJ"
+  },
+  {
+    "nome": "Biblioteca Aguinaldo Pereira de Macedo",
+    "localizacao": "Rua Tenente Osório, nº 73, Fonseca, Niterói - RJ"
+  },
+  {
+    "nome": "Biblioteca Anísio Teixeira",
+    "localizacao": "Campo de São Bento, Alameda Edmundo de Macedo Soares e Silva, s/n, Icaraí, Niterói - RJ"
+  },
+  {
+    "nome": "Biblioteca Cora Coralina",
+    "localizacao": "Rua São Pedro, nº 108, Centro, Niterói - RJ"
+  },
+  {
+    "nome": "Biblioteca Engenho do Mato",
+    "localizacao": "Praça do Engenho do Mato, s/n, Engenho do Mato, Niterói - RJ"
+  },
+  {
+    "nome": "Biblioteca Lídice Fróes",
+    "localizacao": "Av. Carlos Ermelindo Marins, nº 34, Jurujuba, Niterói - RJ"
+  },
+  {
+    "nome": "Biblioteca Monteiro Lobato",
+    "localizacao": "Rua Dr. Luiz Palmier, Barreto, Niterói - RJ"
+  },
+  {
+    "nome": "Biblioteca Parque de Niterói",
+    "localizacao": "Praça da República, s/n, Centro, Niterói - RJ"
+  },
+  {
+    "nome": "Biblioteca Silvestre Mônaco",
+    "localizacao": "Rua Jornalista Sardo Filho, s/n, Ilha da Conceição, Niterói - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária de Lumiar",
+    "localizacao": "Praça Levy Aires Brust, s/n, Lumiar, Nova Friburgo - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Maria Margarida Ligori",
+    "localizacao": "Rua Farinha Filho, 50 - Térreo, Centro, Nova Friburgo - RJ"
+  },
+  {
+    "nome": "Biblioteca Viva",
+    "localizacao": "Rua Edvaldo Cunha, 364, Cascatinha, Nova Friburgo - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Dona Corujinha",
+    "localizacao": "Rua Alameda Minas Gerais, nº 276, Cerâmica, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Ekedji Wal",
+    "localizacao": "Rua Pedro Cunha, 307, Ponto Chic, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Livro Social",
+    "localizacao": "Estrada do Vilar, nº 284, Vila Nova do Couto, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Manoel de Barros",
+    "localizacao": "Rua Doutor Frederico, nº 397, Parque de Todos os Santos - Lagoinha, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Maria Freire",
+    "localizacao": "Av. Mutirão, nº 1000, Campo Alegre, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Maria Lina",
+    "localizacao": "Rua Rural, 11, Corumbá, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Maria Rocha",
+    "localizacao": "Rua Maria Teixeira de Melo, 157, Jardim Palmares, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Maria Thereza Ramos",
+    "localizacao": "Rua Ministro Lafaiete de Andrade, nº 450, Jardim Primavera, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Nilo Sérgio",
+    "localizacao": "Rua Felipe Pereira, nº 341, Ouro Preto, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Paulo Sacramento",
+    "localizacao": "Rua Tufão, nº 170, Vila Guimarães, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Professora Judith Lacaz",
+    "localizacao": "Rua Pedro Cunha, nº 307, Ponto Chic, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Resistência Cultural",
+    "localizacao": "Rua Fabiana de Oliveira Marzulo, s/n, Valverde, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Sônia Maria Ricardo",
+    "localizacao": "Rua Amapá, nº 161, Santa Rita, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Thalita Rebouças",
+    "localizacao": "Estrada Amaral, nº 791, Amaral, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Três Marias",
+    "localizacao": "Avenida Severino Pereira da Silva, s/n, Três Marias, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária União do Saber",
+    "localizacao": "Rua Império, nº 465, Dois Irmãos, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Vale Tinguá",
+    "localizacao": "Rua Paraná, nº 41, Tinguá, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Vó Conceição",
+    "localizacao": "Rua Selma, nº 481, Jardim Alvorada, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Waldick Pereira",
+    "localizacao": "Rua Pedro Cunha, 307, Ponto Chic, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Zuenir Ventura",
+    "localizacao": "Rua Sebastião de Melo, 384, Jardim Nova Era, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Professor Cial Brito",
+    "localizacao": "Rua Getulio Vargas, nº 51, 2° andar, Centro, Nova Iguaçu - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Demistóclides Baptista (Batistinha)",
+    "localizacao": "Rua Alberto Leal Cardoso, s/n, Centro, Paracambi - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Maria da Conceição Almada Passos",
+    "localizacao": "Av. Prefeito Bento Gonçalves Pereira, s/n, Palhas, Paraíba do Sul - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Ciranda de Tarituba",
+    "localizacao": "Rua Joaquim Meira dos Santos, nº 9, Tarituba, Paraty - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Colibri",
+    "localizacao": "Rua Alecrim nº 38, Pantanal, Paraty - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária ITAE",
+    "localizacao": "Rua José do Patrocínio, nº 975, Parque de Mangueira, Paraty - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Itaxi Mirim",
+    "localizacao": "Aldeia Itaxî Guarani M'bya s/n, Paraty-Mirim, Paraty - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Quilombo do Campinho",
+    "localizacao": "Quilombo do Campinho, s/n, Campinho, Paraty - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Terra e Mar - ITEMA",
+    "localizacao": "Morro do Ditão s/n, Barra do Corumbê, Paraty - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Fabio Villaboim",
+    "localizacao": "Rua do Comércio, 1722, Centro Histórico, Paraty - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Joaquim Osorio Duck Estrada",
+    "localizacao": "Praça Manoel Congo s/n, Centro, Paty do Alferes - RJ"
+  },
+  {
+    "nome": "Biblioteca Central Municipal Gabriela Mistral",
+    "localizacao": "Praça Visconde de Mauá, 350, Centro, Petrópolis - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Prefeito Aureliano Gonçalves Barbosa",
+    "localizacao": "Rua Domingos Mariano nº 113, Centro, Pinheiral - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Celeiros das Letras (Santanésia)",
+    "localizacao": "Av. Professora Heloísa Beatriz Figueira, nº 488, Santanésia, Piraí - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Celeiros das Letras (Varjão)",
+    "localizacao": "Praça do Varjão, nº 125, Varjão, Piraí - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal de Piraí",
+    "localizacao": "Rua Dr. Luiz Antonio Garcia da Silveira, nº 16, Centro, Piraí - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Eloy Viera Lannes",
+    "localizacao": "Avenida José Tannus, s/n, Centro, Porciúncula - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Áurea Lioi Macias",
+    "localizacao": "Av. Renato Monteiro, nº 2086, loja 04, Village, Porto Real - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Maria Aparecida",
+    "localizacao": "Espaço Estação Cultural - Rua Vandelino Teixeira, nº 25, São Benedito, Quatis - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Maria Firmina dos Reis",
+    "localizacao": "Rua Heloísa, nº 240, Vila do Tinguá, Queimados - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Parque Educacional",
+    "localizacao": "Rua Serro azul, lote 29, quadra 13, Parque do Ipanema, Queimados - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Padre Sá",
+    "localizacao": "Rua Macaé, nº 430, São Roque, Queimados - RJ"
+  },
+  {
+    "nome": "Biblioteca Centro Cultural Sobradinho (Biblioteca Municipal de Quissamã)",
+    "localizacao": "Rua Comendado José Julião, nº 208, Centro, Quissamã - RJ"
+  },
+  {
+    "nome": "Biblioteca do CCVM",
+    "localizacao": "Rua Presidente Wenceslau, nº 699, Loja 1, Visconde de Mauá, Resende - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Dr. Jandyr César Sampaio",
+    "localizacao": "Praça do Centenário, nº 37, Centro, Resende - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Zulmira de Bastos Mello",
+    "localizacao": "Rodoviária Presidente Dutra, Km 332, s/n, Estação Engenheiro Passos, Resende - RJ"
+  },
+  {
+    "nome": "Biblioteca Praça do Esporte e da Cultura",
+    "localizacao": "Rua J, nº 39, Morada da Montanha, Resende - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Lona na Lua",
+    "localizacao": "Rua Desembargador Admário Alves de Mendonça, nº 121, Centro, Rio Bonito - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Celso Peçanha",
+    "localizacao": "Rua Monsenhor Antônio de Souza Gens, 23, Centro, Rio Bonito - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Ana de Sá Alves",
+    "localizacao": "Rua Vicente Panaino, s/n, Centro, Rio Claro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Prof. Iris Galvão",
+    "localizacao": "Av. Amazonas s/n, Balneário Remanso, Rio das Ostras - RJ"
+  },
+  {
+    "nome": "Biblioteca Ailton Krenak do Instituto Onikoja",
+    "localizacao": "Rua Nunes, 240, Sepetiba, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Ana Paula Araújo",
+    "localizacao": "Rua Bonfim, 7AF, Leme (Favela da Babilônia), Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Anne Frank",
+    "localizacao": "Rua boa Fé s/n, esquina com Campos Mourão, Inhoaiba, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Annita Porto Martins",
+    "localizacao": "Rua Sampaio Viana, nº 357, Rio Comprido, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Casa de Cultura de Jacarepaguá",
+    "localizacao": "Rua Alberto Soares Sampaio, 72, Taquara, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Casa Viva",
+    "localizacao": "Rua Dr. Luiz Gregório de Sá, nº 46, Manguinhos, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Cláudio de Moraes",
+    "localizacao": "Rua Fernandes Guimarães 57, Casa 6, Botafogo, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária A Casa Amarela",
+    "localizacao": "Rua Padre Mario Versé, nº 11, Anchieta, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária A Casa Amarela II",
+    "localizacao": "Rua Eduardo Cesar Machado nº 222 frente, Parque Anchieta, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária A Casa Amarela III",
+    "localizacao": "Rua Otacílio Pedro Vasco, 1407. Mariópolis, Anchieta, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária A Casa Amarela IV",
+    "localizacao": "Rua Rabelo da Silva, 318. Granito, Anchieta, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Atelier das Palavras",
+    "localizacao": "Av. Santo Antônio nº 13, Mangueira, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Atitude Social",
+    "localizacao": "Rua da Serenidade, nº 02, Comunidade Santa Marta, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Bela Maré",
+    "localizacao": "Rua Bittencourt Sampaio, 169, Nova Holanda (Maré), Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Cauiré",
+    "localizacao": "Rua Maracá, 7, Vila Kosmos, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Christiane Torloni",
+    "localizacao": "Estrada Porto Velho, nº 199, Cordovil, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária do Caju",
+    "localizacao": "Rua Carlos Seidl, s/n, Caju, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária do Cerro Corá",
+    "localizacao": "Rua João Deleri, nº 68, fundos, Cosme Velho, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária do Lajão",
+    "localizacao": "Rua Euclides da Rocha, nº 508/100, Morro dos Cabritos-Copacabana, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária do NOPH - Gastão Abbott",
+    "localizacao": "Rua das Palmeiras Imperais, s/n, Santa Cruz, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Dodô da Portela",
+    "localizacao": "Ladeira do Barroso, nº 40, Gamboa, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Elias José",
+    "localizacao": "Av. Guilherme Maxwell nº 26, Timbau-Maré, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária entre o Céu e a Favela",
+    "localizacao": "Ladeira do Farias, nº 88, Gamboa, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Estação 67",
+    "localizacao": "Estrada de Sepetiba, Av. Dois, 17, Nova Sepetiba, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Favela em Desenvolvimento",
+    "localizacao": "Rua Laura Bersot, 20 C1, Alto da Boavista, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Hélio de La Pena",
+    "localizacao": "Ladeira Ary Barroso, nº 66, Rua São Francisco, nº 05, Leme, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Instituto de Desenvolvimento Educacional, Cultural e Social",
+    "localizacao": "Av. Marechal Rondon nº 2649 – Engenho Novo, Lins de Vasconcelos, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Jurema Gomes Baptista",
+    "localizacao": "Rua Casemiro nº 22 D, Tijuca, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Luciana Savaget",
+    "localizacao": "Rua Teixeira Ribeira, s/n, Nova Holanda (Maré), Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Maré de Luz",
+    "localizacao": "Rua São Pedro, 26, Parque União (Maré), Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Marginow",
+    "localizacao": "Travessa Vinte e Quatro, nº 245, Conjunto Antares, Santa Cruz, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Nasci Para Brilhar",
+    "localizacao": "Travessa 25, 181, Vila do Pinheiro (Maré), Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Nélida Pinõn",
+    "localizacao": "Travessa Luiz Gonzaga, 58, Marcílio Dias, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Ninho das Águias",
+    "localizacao": "Rua Camélia, 3, Comunidade Pavão, Copacabana, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Nós do Morro",
+    "localizacao": "Rua Dr Olinto de Magalhaes, nº 54, Vidigal, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária O Mundo da Lua",
+    "localizacao": "Ladeira dos Tabajaras, nº 572/sB, Copacabana, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Paulo Coelho",
+    "localizacao": "Rua Saint Roman, 146, Copacabana, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Paulo Freire",
+    "localizacao": "Rua Javatá, 1242, Anchieta, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Ponto e Vírgula",
+    "localizacao": "Rua São Fernando, 85, Casa 01, Cascadura, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Professora Maria da Graça Soares Valente",
+    "localizacao": "Rua Vila Queiroz, nº 70, Madureira, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Semear",
+    "localizacao": "Rua Ana Cristina Cesar, Pantanal, Cidade de Deus, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Unifavela",
+    "localizacao": "Rua Quatorze, 468, Vila do João (Maré), Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Wagner Vinício",
+    "localizacao": "Estrada de Jacarepaguá nº 5411- Quadra 1 - Casa 55, Rio das Pedras, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Cyber Pejigan Beto",
+    "localizacao": "Estrada Velha do Piaí, 705, Sepetiba, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca e Centro de Documentação do Museu de Arte do Rio de Janeiro - Biblioteca MAR",
+    "localizacao": "Praça Mauá, nº 5, Saúde, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Espaço Cultural Sparta",
+    "localizacao": "Rua Rego barros, 97 - Fundos, Santo Cristo, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Espaço de Leitura Alfredo Machado",
+    "localizacao": "Av. Nossa Senhora de Copacabana, nº 360, Copacabana, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Espaço de Leitura Moacyr Teixeira",
+    "localizacao": "Santa Cruz, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Esquina do Livro",
+    "localizacao": "Rua Barão do Bom Retiro, nº 941, Engenho Novo, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Garagem das Letras",
+    "localizacao": "Rua Dioneia, nº 11, Rocinha, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Instituto HOU - Ciberbiblioteca Vó Jacintha de Oliveira Ferreira",
+    "localizacao": "Rua Visconde de Niterói, nº 1.180, Sobrado, Mangueira, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Livreteria Popular Juraci Nascimento",
+    "localizacao": "Major Jacarandá, 10, Estácio, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Mangateca Comunitária Dicria",
+    "localizacao": "Rua Itapiru, nº 632 (loja), Catumbi, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Ecio Salles",
+    "localizacao": "Rua Vice-Governador Rubens Berardo, 100, Gávea, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Euclides da Cunha",
+    "localizacao": "Praia de Cocotá, nº 82, Cocotá, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal João do Rio",
+    "localizacao": "Av. Monsenhor Félix, 512, Irajá, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal José Bonifácio",
+    "localizacao": "Rua Pedro Ernesto, nº 80, Gamboa, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal José de Alencar",
+    "localizacao": "Rua Monte Alegre, nº 306, Santa Teresa, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Machado de Assis",
+    "localizacao": "Rua Farani, nº 53, Botafogo, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Maria Firmina dos Reis",
+    "localizacao": "Rua Afonso Cavalcanti, 455, Cidade Nova, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Milton Nascimento",
+    "localizacao": "Praça Geraldo Simonard, s/n, Jacarepaguá, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Ziraldo",
+    "localizacao": "Av. das Américas, nº 5.300, Barra da Tijuca, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Neuma Gonçalves",
+    "localizacao": "Rua General Bento Ribeiro, 1, Mangueira, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca no Palco da Vida",
+    "localizacao": "Rua Uranos, nº 1.363, Olaria, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Parque Estadual (BPE-RJ)",
+    "localizacao": "Av. Presidente Vargas, nº 1.261, Centro, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Parque Manguinhos (Biblioteca Pública-RJ)",
+    "localizacao": "Av. Dom Hélder Câmara, 1184, Benfica, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Parque Rocinha (BPR-RJ)",
+    "localizacao": "Estrada da Gávea, 454, Rocinha, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Ponto de Cultura Vidigal Cultural",
+    "localizacao": "Av. Presidente João Goulart, nº 737, 2° Andar, Vidigal, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Ponto de Leitura do Espaço Mistura Gente",
+    "localizacao": "Rua da Alfandega, 50, Centro, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Popular Lima Barreto",
+    "localizacao": "Rua Sargento Silva Nunes, nº 1014, Nova Holanda-Maré, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Povoada",
+    "localizacao": "Rua Euclides da Rocha, 180, Copacabana, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Estadual Tio Jair da Mangueira",
+    "localizacao": "Av. Bartolomeu Gusmão, nº 850, São Cristóvão, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Jorge Amado",
+    "localizacao": "Rua Ivanildo Alves, s/n, Complexo da Maré, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Manoel Ignácio S. Alvarenga",
+    "localizacao": "Rua Amaral Costa, nº 140, Campo Grande, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Marquês Rebelo",
+    "localizacao": "Rua Guapeni, 61, Tijuca, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Santa Teresinha do Menino Jesus",
+    "localizacao": "Rua Sanatório, 310, Madureira, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Thalita Rebouças",
+    "localizacao": "Rua São Pedro, 41, Inhaúma, Complexo do Alemão, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Biblioteca Mariano de Oliveira",
+    "localizacao": "Praça José Raphael Bechara, s/n, Centro, Santa Maria Madalena - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal D. Lermant Dcnop",
+    "localizacao": "Av. Chaim Elias, s/n, Tavares, Santo Antônio de Pádua - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Corina Peixoto de Araújo",
+    "localizacao": "Praça Guilherme Tito de Azevedo, nº 135, Centro, São Fidélis - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal de São Francisco de Itabapoana",
+    "localizacao": "Av. Vereador Edenites da Silva Viana, nº 255, Centro, São Francisco de Itabapoana - RJ"
+  },
+  {
+    "nome": "Biblioteca Amigos do Serpa",
+    "localizacao": "Rua Rosendo Marcos, 2661, Palmeiras, São Gonçalo - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Cantinho da Leitura",
+    "localizacao": "Rua Fernando Queiróz, lote 4, Coelho, São Gonçalo - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária da Ancestralidade",
+    "localizacao": "Rua Dalmir da Silva, Lote 8, Sacramento, São Gonçalo - RJ"
+  },
+  {
+    "nome": "Biblioteca Jornateca Conceição Evaristo",
+    "localizacao": "Rua João Pereira da Cunha, nº 35, Barro Vermelho, São Gonçalo - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Genebaldo Rosa",
+    "localizacao": "Travessa Ursina Vargas, nº 36, Alcântara, São Gonçalo - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Manuel Ignacio da Silva Alvarenga",
+    "localizacao": "Rua João Patrício Delfim Pereira, nº 295, Centro, São João da Barra - RJ"
+  },
+  {
+    "nome": "Biblioteca Espaço Literário Lélia Gonzales",
+    "localizacao": "Rua Machado de Assis, Lote 12 Quadra 84, Praça da Bandeira, São João de Meriti - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Leonor de Souza Bernardo",
+    "localizacao": "Rua Hemengardo Ramos Vieira, 125, Centro, São José de Ubá - RJ"
+  },
+  {
+    "nome": "Biblioteca Comunitária Novos Horizontes",
+    "localizacao": "Estrada Afonso Rodrigues Bittencourt, s/n, Morro Grande, São José do Vale do Rio Preto - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Nancy de Castro Esteves",
+    "localizacao": "Rua Paulo Franco Werneck, 234, sala 9, Centro, São José do Vale do Rio Preto - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Prof. Cordelino Teixeira Paulo",
+    "localizacao": "Rua Francisco Coelho Pereira, 149, Centro, São Pedro da Aldeia - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Dr. James Tubenchlak",
+    "localizacao": "Rua Dr. Eurico Cerbino, nº 200, Centro, São Sebastião do Alto - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Jocino Miranda Janotti",
+    "localizacao": "Rua Fernando Mauro Jannotti Silva, nº 180, Pátio da Estação, Sapucaia - RJ"
+  },
+  {
+    "nome": "Biblioteca Geladeira Cultural e Biblioteca Comunitária Gian Calvi",
+    "localizacao": "Rua Prof. José de Souza Herdy, 433, Imbau, Silva Jardim - RJ"
+  },
+  {
+    "nome": "Biblioteca Geladeira Cultural Maria Zilma Saldanha de Aquino",
+    "localizacao": "Rua Sansão Pedro David, nº 29, Centro, Silva Jardim - RJ"
+  },
+  {
+    "nome": "Biblioteca Geladeira Cultural Palmeira Jussara Caipira",
+    "localizacao": "Av. Geneciano Luz, s/n, Silva Jardim - RJ"
+  },
+  {
+    "nome": "Biblioteca Geladeira Cultural Pensando no Amanhã",
+    "localizacao": "Av. Geneciano Luz, s/n, Varginha, Silva Jardim - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Tiradentes",
+    "localizacao": "Rua Pinto de Figueiredo, nº 74, Centro, Silva Jardim - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Waldemar José Teixeira Ponciano",
+    "localizacao": "Rua 10 de Junho, s/n, Centro, Sumidouro - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Mário Lago",
+    "localizacao": "Rua Julieta Macedo, s/n, Centro, Tanguá - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Professor Chico",
+    "localizacao": "Avenida do Areal, s/n, Bandeirantes II, Tanguá - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal de Teresópolis",
+    "localizacao": "Rua Carmela Dutra, 475 - Térreo, Agriões, Teresópolis - RJ"
+  },
+  {
+    "nome": "Biblioteca Marcela Abreu Guimarães",
+    "localizacao": "Fazenda Monte Cristo, s/n, Zona Rural, Trajano de Moraes - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Dr. Jose de Moraes e Souza",
+    "localizacao": "Rua Antônio Cabral, s/n, Centro, Trajano de Moraes - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Castro Alves",
+    "localizacao": "Praça São Sebastião, nº 224, Centro, Três Rios - RJ"
+  },
+  {
+    "nome": "Biblioteca Popular Municipal Olavo Bilac",
+    "localizacao": "Centro, Três Rios - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Professora Elena Geovani",
+    "localizacao": "Rua Túlio Riguete, s/n, Centro, Varre-Sai - RJ"
+  },
+  {
+    "nome": "Biblioteca Jannice Monte-Mór",
+    "localizacao": "Praça Major Suzano, s/n, Andrade Costa, Vassouras - RJ"
+  },
+  {
+    "nome": "Biblioteca Municipal Maurício de Lacerda",
+    "localizacao": "Rua Barão do Tinguá, nº 3, Centro, Vassouras - RJ"
+  },
+  {
+    "nome": "Biblioteca Água Doce",
+    "localizacao": "Rua B, lotes 16 a 21, Centro (Suruí), Volta Redonda - RJ"
+  },
+  {
+    "nome": "Biblioteca Engenheiro Renato Frota Rodrigues de Azevedo",
+    "localizacao": "Rua Dezenove, 135, 3º andar, Vila Rica, Volta Redonda - RJ"
+  },
+  {
+    "nome": "Biblioteca Pública Municipal Raul de Leoni",
+    "localizacao": "Rua General Oswaldo Pinto de Veiga, s/n, Vila Santa Cecília, Volta Redonda - RJ"
+  },
+  {
+    "nome": "Biblioteca Sérgio Alves Zacarias",
+    "localizacao": "Rua 18A, s/n, Vila Santa Cecília, Volta Redonda - RJ"
   }
 ]

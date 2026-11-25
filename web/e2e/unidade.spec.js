@@ -17,7 +17,7 @@ const PECAS = {
   estrela: ".estrela:not(.miolo .estrela), .miolo .quadro .estrela",
   "estrela sobre rosa": ".miolo .estrela:not(.quadro .estrela)",
   "formulário e diálogo": ".quadro",
-  campo: ".quadro input:not([type=radio], [type=file]), .quadro textarea",
+  campo: ".quadro input:not([type=radio], [type=file]), .quadro select, .quadro textarea",
   "título da tela": ".cabecalho h1, .listrado h1",
   "título do quadro": ".quadro h2",
   "vazio, carregando e erro": ".conteudo main > .mensagem:not(.erro), .feed > .mensagem:not(.erro), .secao > .mensagem:not(.erro)",
@@ -67,7 +67,7 @@ test("cada peça é igual em todas as telas, e nenhum link interno dá 404", asy
       if (primeira[peca].medida !== medida) diferencas.push(`${peca}: ${tela} tem ${medida}; ${primeira[peca].tela} tem ${primeira[peca].medida}`);
     }
     await page.setViewportSize({ width: 320, height: 640 });
-    pequenos.push(...(await page.evaluate(() => [...document.querySelectorAll("a[href], button, summary, textarea, input:not([type=radio]), label:has([type=radio])")]
+    pequenos.push(...(await page.evaluate(() => [...document.querySelectorAll("a[href], button, summary, select, textarea, input:not([type=radio]), label:has([type=radio])")]
       .filter((no) => no.checkVisibility() && no.getBoundingClientRect().height < 44)
       .map((no) => `${no.tagName} ${no.className} ${no.textContent.trim().slice(0, 20)}`))).map((alvo) => `${tela}: ${alvo}`));
     await page.setViewportSize({ width: 1440, height: 900 });

@@ -394,7 +394,7 @@ html:has(.dialogo[open]) { overflow: hidden; }
 .quadro small { font-weight: 500; }
 .quadro p { margin: 0; text-align: center; }
 
-.quadro input, .quadro textarea {
+.quadro input, .quadro select, .quadro textarea {
   width: 100%;
   min-height: var(--toque);
   padding: var(--espaco-2) var(--espaco-3);

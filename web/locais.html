@@ -16,7 +16,16 @@
     </header>
     <main>
       <p id="mensagem" class="mensagem" role="status">Carregando…</p>
+      <div id="filtro" class="secao" hidden>
+        <div class="quadro">
+          <label>
+            Município
+            <select id="municipio"><option value="">Todos</option></select>
+          </label>
+        </div>
+      </div>
       <ul id="selos" class="selos"></ul>
+      <a id="fonte" class="ligacao" href="https://dados.cultura.gov.br/dataset/7d493fc6-e9b0-42d2-862b-161a9a0dd78d" target="_blank" rel="noopener noreferrer" hidden>Dados adaptados do Mapa das Bibliotecas Públicas, Ministério da Cultura (Creative Commons Atribuição)</a>
     </main>
 
     <dialog id="dialogo" class="quadro dialogo" aria-labelledby="titulo-dialogo">

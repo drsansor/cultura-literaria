@@ -9,7 +9,10 @@ const base = (troca = {}) => ({ bibliotecas: [local], sebos: [local], influencia
 
 test("dados válidos, inclusive os do projeto", () => {
   assert.deepEqual(validar(base()), []);
-  assert.deepEqual(validar(lerDados()), []);
+  const dados = lerDados();
+  assert.deepEqual(validar(dados), []);
+  // O filtro da tela lê o município do fim da localização.
+  assert.deepEqual(dados.bibliotecas.filter(({ localizacao }) => !/(^|, )[^,]+ - RJ$/.test(localizacao)), []);
 });
 
 for (const [nome, troca, esperado] of [
