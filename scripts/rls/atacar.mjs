@@ -179,6 +179,16 @@ for (const [nome, regra] of Object.entries(tabelas)) {
       }
     });
 
+    // Sem where a política de leitura não participa do update nem do delete: a API tem de recusar.
+    test("não altera nem apaga sem filtro", async () => {
+      const antes = await real(chave.bia);
+      for (const quem of ["anon", "semPerfil", "ana", "admin"]) {
+        for (const coluna of colunas) assert.notEqual(codigo(await de(quem).update({ [coluna]: null })), null, `${quem} altera ${coluna}`);
+        assert.notEqual(codigo(await de(quem).delete()), null, `${quem} apaga`);
+      }
+      assert.deepEqual(await real(chave.bia), antes);
+    });
+
     test("quem não tem perfil não insere", async () => {
       if (regra.semPerfilInsere) return;
       for (const quem of ["semPerfil", "excluida"]) {
