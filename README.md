@@ -35,7 +35,7 @@ Não rode `supabase link` enquanto desenvolve: ele fixa versões do projeto remo
 | Nomes do "Feito por:" | `web/src/creditos.js` |
 | Logo do grupo | `web/public/logo.png` |
 
-Locais têm `nome` e `localizacao`. A `localizacao` que termina em `, Município - UF` entra no filtro da tela. As bibliotecas vêm do [Mapa das Bibliotecas Públicas](https://dados.cultura.gov.br/dataset/7d493fc6-e9b0-42d2-862b-161a9a0dd78d) (Ministério da Cultura, Creative Commons Atribuição), limpas e com municípios corrigidos pelo CEP. Influenciadores têm `nome`, `foto` (nome do arquivo ou `null`) e `instagram`, `youtube` e `tiktok` sem `@`, ao menos um.
+Locais têm `nome` e `localizacao`. A `localizacao` que termina em `, Município - UF` entra no filtro da tela. As bibliotecas vêm do [Mapa das Bibliotecas Públicas](https://dados.cultura.gov.br/dataset/7d493fc6-e9b0-42d2-862b-161a9a0dd78d) (Ministério da Cultura, Creative Commons Atribuição), limpas e com municípios corrigidos pelo CEP. Os sebos foram pesquisados um a um; só entrou quem tem indício recente de funcionamento. Influenciadores têm `nome`, `foto` (nome do arquivo ou `null`) e `instagram`, `youtube` e `tiktok` sem `@`, ao menos um.
 
 `npm run importar` confere os arquivos, cria o que falta e atualiza o que mudou. **Nunca apaga**: corrigir o nome ou o endereço de um local cria outro, e o antigo sai à mão. Sem variáveis, usa o banco local. Para outro banco, defina `SUPABASE_URL` e `SUPABASE_SECRET_KEY` e use `npm run importar -- --producao`.
 

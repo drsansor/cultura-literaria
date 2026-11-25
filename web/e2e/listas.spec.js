@@ -76,7 +76,12 @@ test("filtro por município mostra só as bibliotecas dele", async ({ page }) =>
   expect(opcoes[0]).toBe("Todos");
   expect(opcoes.slice(1)).toEqual([...opcoes.slice(1)].sort((a, b) => a.localeCompare(b, "pt-BR")));
   await page.goto("/locais.html?tipo=sebo");
-  await expect(selos(page).first()).toBeVisible();
+  await filtro.selectOption("Petrópolis");
+  expect(await page.locator(".selo:visible h2").allTextContents()).toEqual(dados.sebos.filter(({ localizacao }) => localizacao.endsWith(", Petrópolis - RJ")).map(({ nome }) => nome));
+  // Com um município só, não há o que filtrar.
+  await page.route(/\/rest\/v1\/locais_com_nota/, (rota) => rota.fulfill({ json: [{ id: randomUUID(), ...dados.sebos[0], media: null, total: 0 }] }));
+  await page.reload();
+  await expect(selos(page)).toHaveCount(1);
   await expect(filtro).toBeHidden();
 });
 

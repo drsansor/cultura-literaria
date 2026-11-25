@@ -1,14 +1,66 @@
 [
   {
-    "nome": "Sebo Exemplo 1",
-    "localizacao": "Avenida Exemplo, 1, Cidade Exemplo"
+    "nome": "Academia do Saber",
+    "localizacao": "Rua da Carioca, 28, Centro, Rio de Janeiro - RJ"
   },
   {
-    "nome": "Sebo Exemplo 2",
-    "localizacao": "Avenida Exemplo, 2, Cidade Exemplo"
+    "nome": "Baratos da Ribeiro",
+    "localizacao": "Rua Dezenove de Fevereiro, 90, Botafogo, Rio de Janeiro - RJ"
   },
   {
-    "nome": "Sebo Exemplo 3",
-    "localizacao": "Avenida Exemplo, 3, Cidade Exemplo"
+    "nome": "Belle Époque Discos e Livros",
+    "localizacao": "Rua Soares, 50, Méier, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Beta de Aquarius",
+    "localizacao": "Rua do Catete, 127, Catete, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Casa 11 Sebo e Livraria",
+    "localizacao": "Rua das Laranjeiras, 371, loja 11, Laranjeiras, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Caverna do Saber (Livraria Eldorado)",
+    "localizacao": "Rua Conde de Bonfim, 422, Tijuca, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Elizart Livros",
+    "localizacao": "Av. Marechal Floriano, 63, Centro, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Letra Viva",
+    "localizacao": "Rua Luís de Camões, 10, Centro, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Livraria Alento",
+    "localizacao": "Rua Senador Vergueiro, 80, loja A, Flamengo, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Livraria Berinjela",
+    "localizacao": "Av. Rio Branco, 185, Centro, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Livraria Lima Barreto e Pequeno Benjamim",
+    "localizacao": "Rua Visconde de Pirajá, 595, lojas 112 e 113, Ipanema, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Livraria Silverio",
+    "localizacao": "Av. Passos, 22, loja A, Centro, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Sebo do Natal",
+    "localizacao": "Praia de Botafogo, 324, loja 11, Botafogo, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Sebo Jacaré",
+    "localizacao": "Rua Marquês de Abrantes, 19-B, Flamengo, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Sebo Rua das Flores",
+    "localizacao": "Rua das Flores, s/n, Tijuca, Rio de Janeiro - RJ"
+  },
+  {
+    "nome": "Salada de Livros",
+    "localizacao": "Rua do Imperador, 264, lojas 27 e 28, Centro, Petrópolis - RJ"
   }
 ]
