@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Confirme seu e-mail</title>
+</head>
+<body style="margin:0;padding:0;background-color:#ee7bbe;">
+<div style="display:none;max-height:0;max-width:0;overflow:hidden;opacity:0;font-size:1px;line-height:1px;color:#ee7bbe;">Falta um passo para criar sua conta.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ee7bbe" style="background-color:#ee7bbe;">
+<tr>
+<td align="center" style="padding:24px 12px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="max-width:560px;background-color:#ffffff;border-radius:20px;">
+<tr>
+<td align="center" bgcolor="#fff6ed" style="padding:28px 24px;background-color:#fff6ed;border-radius:20px 20px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:30px;font-weight:bold;color:#5a3b36;">Ler+</td>
+</tr>
+<tr>
+<td align="center" style="padding:32px 24px 8px;font-family:Arial,Helvetica,sans-serif;">
+<h1 style="margin:0;font-size:22px;line-height:28px;font-weight:bold;color:#5a3b36;">Confirme seu e-mail</h1>
+</td>
+</tr>
+<tr>
+<td align="center" style="padding:8px 24px 24px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;color:#3a211d;">Falta um passo para criar sua conta. Toque no botão abaixo.</td>
+</tr>
+<tr>
+<td align="center" style="padding:0 24px 24px;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="center" bgcolor="#ee7bbe" style="background-color:#ee7bbe;border-radius:999px;border:14px solid #ee7bbe;">
+<a href="{{ .ConfirmationURL }}" target="_blank" style="display:block;padding:0 14px;font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:22px;font-weight:bold;color:#3a211d;text-decoration:none;">Confirmar e-mail</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="center" style="padding:0 24px 24px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3a211d;">O botão não abriu? Copie este endereço e cole no navegador:<br><a href="{{ .ConfirmationURL }}" target="_blank" style="color:#8e3146;word-break:break-all;">{{ .ConfirmationURL }}</a></td>
+</tr>
+<tr>
+<td align="center" style="padding:16px 24px 32px;border-top:1px solid #ecc1ca;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3a211d;">O link vale por tempo limitado e funciona uma vez só. Se você não criou esta conta, ignore esta mensagem.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
