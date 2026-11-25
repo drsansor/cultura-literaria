@@ -7,3 +7,6 @@ export const creditos = [
   "Letícia Kraieski",
   "Thalita Soares",
 ];
+
+// Crédito abaixo do papel, no menu.
+export const desenvolvedor = { nome: "Sander Albuquerque", endereco: "https://github.com/drsansor" };

@@ -1,4 +1,4 @@
-import { creditos } from "../src/creditos.js";
+import { creditos, desenvolvedor } from "../src/creditos.js";
 import { admin, conferirPagina, criarUsuario, entrar, expect, test } from "./ajuda.js";
 
 const BOTOES = {
@@ -31,7 +31,7 @@ test("visual do menu", async ({ page }) => {
 
 test("cada botão e seta leva à sua página", async ({ page }) => {
   await abrir(page);
-  await expect(page.getByRole("main").getByRole("link")).toHaveCount(7);
+  await expect(page.getByRole("main").getByRole("link")).toHaveCount(8);
   for (const [nome, destino] of Object.entries({ ...BOTOES, ...SETAS })) {
     await expect(page.getByRole("link", { name: nome, exact: true })).toHaveAttribute("href", destino);
   }
@@ -52,6 +52,12 @@ test("feito por lista os créditos", async ({ page }) => {
   await abrir(page);
   await expect(page.getByRole("region", { name: "Feito por:" }).getByRole("listitem")).toHaveText(creditos);
   expect(creditos.length).toBeGreaterThan(0);
+  const feito = page.getByRole("region", { name: "Feito por:" });
+  await expect(feito).toContainText(`Desenvolvido por ${desenvolvedor.nome}`);
+  const link = feito.getByRole("link", { name: desenvolvedor.nome, exact: true });
+  await expect(link).toHaveAttribute("href", "https://github.com/drsansor");
+  await expect(link).toHaveAttribute("target", "_blank");
+  await expect(link).toHaveAttribute("rel", "noopener noreferrer");
 });
 
 test("no celular o perfil vem depois dos botões; no computador, ao lado", async ({ page }) => {

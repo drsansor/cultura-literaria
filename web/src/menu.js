@@ -1,11 +1,12 @@
 import { pessoa } from "./avatar.js";
-import { creditos } from "./creditos.js";
+import { creditos, desenvolvedor } from "./creditos.js";
 import { avisar, el } from "./dom.js";
 import { exigirPerfil } from "./sessao.js";
 import { supabase } from "./supabase.js";
 
 const $ = (id) => document.getElementById(id);
 $("creditos").append(...creditos.map((nome) => el("li", {}, nome)));
+$("desenvolvedor").append("Desenvolvido por ", el("a", { href: desenvolvedor.endereco, target: "_blank", rel: "noopener noreferrer" }, desenvolvedor.nome));
 
 const perfil = await exigirPerfil();
 avisar($("mensagem"), "");
