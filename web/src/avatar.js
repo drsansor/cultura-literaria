@@ -13,3 +13,8 @@ export function avatar({ nome, foto_path }, { tamanho = "p" } = {}) {
   }
   return estrela;
 }
+
+// Estrela, nome e @usuário: a forma única de mostrar alguém.
+export function pessoa(perfil, { tamanho = "p" } = {}) {
+  return el("div", { className: `pessoa pessoa-${tamanho}` }, avatar(perfil, { tamanho }), el("strong", {}, perfil.nome), el("span", {}, `@${perfil.usuario}`));
+}

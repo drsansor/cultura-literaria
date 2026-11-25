@@ -1,11 +1,11 @@
-import { avisar } from "./dom.js";
-import { exigirPerfil, exigirSessao, sair } from "./sessao.js";
+import { pessoa } from "./avatar.js";
+import { creditos } from "./creditos.js";
+import { avisar, el } from "./dom.js";
+import { exigirPerfil } from "./sessao.js";
 
 const $ = (id) => document.getElementById(id);
-const { user } = await exigirSessao();
-await exigirPerfil();
+$("creditos").append(...creditos.map((nome) => el("li", {}, nome)));
 
-$("email").textContent = user.email;
-$("sair").addEventListener("click", sair);
+const perfil = await exigirPerfil();
 avisar($("mensagem"), "");
-$("menu").hidden = false;
+$("pessoa").replaceWith(pessoa(perfil, { tamanho: "g" }));

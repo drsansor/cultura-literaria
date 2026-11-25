@@ -4,16 +4,40 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Menu principal | A Crise Literária no Brasil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Rammetto+One&display=swap" />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body>
-    <!-- Página provisória: destino do login até a tela do menu ser feita -->
-    <p id="mensagem" class="mensagem" role="status">Carregando…</p>
-    <main id="menu" class="provisorio" hidden>
+  <body class="menu">
+    <header class="listrado">
       <h1>Menu principal</h1>
-      <p>Você entrou como <strong id="email"></strong>.</p>
-      <button id="sair" class="botao">Sair</button>
+      <svg class="escorrido" viewBox="0 0 1131 190" preserveAspectRatio="none" aria-hidden="true">
+        <path class="escorrido-sombra" d="M0 87 C10 88 40 93 60 92 C80 91 114 81 128 81 C142 81 142 83 146 89 C150 95 152 110 156 121 C160 132 165 154 168 158 C171 162 173 153 176 145 C179 137 182 116 186 107 C190 98 194 93 200 89 C206 85 216 82 225 85 C234 88 249 96 256 107 C263 118 263 147 266 151 C269 155 274 146 277 135 C280 124 276 91 284 85 C292 79 316 95 330 97 C344 99 365 90 374 95 C383 100 380 128 384 129 C388 130 393 106 400 101 C407 96 414 100 425 97 C436 94 453 88 468 85 C483 82 504 82 520 81 C536 80 559 75 570 77 C581 79 585 88 590 93 C595 98 598 109 602 107 C606 105 610 85 616 81 C622 77 632 79 640 79 C648 79 655 79 665 83 C675 87 690 100 702 107 C714 114 730 133 742 129 C754 125 761 85 780 81 C799 77 839 107 862 107 C885 107 912 82 925 79 C938 76 935 84 945 87 C955 90 970 95 985 97 C1000 99 1028 96 1040 100 C1052 104 1054 122 1060 123 C1066 124 1067 110 1078 108 C1089 106 1123 112 1131 113 L1131 146 C1126 146 1107 148 1100 144 C1093 140 1091 122 1085 122 C1079 122 1073 144 1060 146 C1047 148 1023 141 1005 136 C987 131 962 121 950 116 C938 111 943 103 930 106 C917 109 891 134 868 134 C845 134 805 105 785 108 C765 111 757 150 746 154 C735 158 728 141 715 134 C702 127 674 116 662 112 C650 108 648 106 640 106 C632 106 621 107 615 112 C609 117 605 136 600 138 C595 140 591 127 586 122 C581 117 581 105 570 104 C559 103 536 111 520 114 C504 117 486 122 470 124 C454 126 432 122 420 126 C408 130 402 141 395 146 C388 151 380 163 376 160 C372 157 382 131 368 126 C354 121 301 119 287 126 C273 133 284 160 280 170 C276 180 269 188 264 186 C259 184 253 167 250 156 C247 145 249 124 243 116 C237 108 220 105 212 106 C204 107 195 112 190 122 C185 132 183 157 178 168 C173 179 165 189 160 188 C155 187 151 173 148 162 C145 151 144 127 140 118 C136 109 133 105 120 106 C107 107 79 120 60 122 C41 124 10 117 0 116 Z" />
+        <path class="escorrido-neve" d="M0 65 C7 66 35 71 45 70 C55 69 56 64 62 58 C68 52 74 33 80 33 C86 33 88 54 98 57 C108 60 130 51 140 52 C150 53 154 60 162 64 C170 68 181 77 188 76 C195 75 198 66 206 60 C214 54 227 43 235 40 C243 37 251 46 258 44 C265 42 272 28 280 28 C288 28 296 42 305 47 C314 52 325 56 335 58 C345 60 356 57 365 58 C374 59 384 67 392 64 C400 61 409 44 418 41 C427 38 440 47 450 46 C460 45 474 40 480 34 C486 28 479 10 487 7 C495 4 519 9 530 16 C541 23 546 45 553 48 C560 51 569 36 575 36 C581 36 583 50 588 48 C593 46 600 24 605 22 C610 20 612 35 618 36 C624 37 636 28 645 30 C654 32 663 42 672 46 C681 50 697 60 703 56 C709 52 707 22 712 22 C717 22 725 52 735 57 C745 62 765 54 775 53 C785 52 792 58 798 51 C804 44 808 18 812 10 C816 2 816 3 822 3 C828 3 843 2 848 10 C853 18 851 43 855 50 C859 57 865 59 872 56 C879 53 891 33 900 31 C909 29 921 44 930 46 C939 48 946 44 955 42 C964 40 974 28 985 31 C996 34 1013 52 1025 58 C1037 64 1048 69 1060 66 C1072 63 1087 42 1098 38 C1109 34 1126 40 1131 40 L1131 118 C1123 117 1089 111 1078 113 C1067 115 1066 129 1060 128 C1054 127 1052 109 1040 105 C1028 101 1000 104 985 102 C970 100 955 95 945 92 C935 89 938 81 925 84 C912 87 885 112 862 112 C839 112 799 82 780 86 C761 90 754 130 742 134 C730 138 714 119 702 112 C690 105 675 92 665 88 C655 84 648 84 640 84 C632 84 622 82 616 86 C610 90 606 110 602 112 C598 114 595 103 590 98 C585 93 581 84 570 82 C559 80 536 85 520 86 C504 87 483 87 468 90 C453 93 436 99 425 102 C414 105 407 101 400 106 C393 111 388 135 384 134 C380 133 383 105 374 100 C365 95 344 104 330 102 C316 100 292 84 284 90 C276 96 280 129 277 140 C274 151 269 160 266 156 C263 152 263 123 256 112 C249 101 234 93 225 90 C216 87 206 90 200 94 C194 98 190 103 186 112 C182 121 179 142 176 150 C173 158 171 167 168 163 C165 159 160 137 156 126 C152 115 150 100 146 94 C142 88 142 86 128 86 C114 86 80 96 60 97 C40 98 10 93 0 92 Z" />
+      </svg>
+    </header>
+    <main>
+      <nav class="botoes" aria-label="Seções">
+        <a class="botao" href="/locais.html?tipo=biblioteca">Lista de bibliotecas</a>
+        <a class="botao" href="/locais.html?tipo=sebo">Lista de Sebos</a>
+        <a class="botao" href="/influenciadores.html">Lista de Influenciadores Literários</a>
+        <a class="botao" href="/comunidade.html">Comunidade</a>
+      </nav>
+      <section class="lado" aria-labelledby="titulo-perfil">
+        <h2 id="titulo-perfil">Perfil</h2>
+        <p id="mensagem" class="mensagem" role="status">Carregando…</p>
+        <div id="pessoa"></div>
+        <nav class="setas" aria-label="Perfil">
+          <a class="seta" href="/amigos.html">Amigos</a>
+          <a class="seta" href="/configuracao.html">Configuração</a>
+          <a class="seta" href="/notificacoes.html">Notificação</a>
+        </nav>
+      </section>
+      <section class="feito" aria-labelledby="titulo-feito">
+        <h2 id="titulo-feito">Feito por:</h2>
+        <div class="papel"><ul id="creditos"></ul></div>
+      </section>
     </main>
     <script type="module" src="/src/menu.js"></script>
   </body>

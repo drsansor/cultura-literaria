@@ -1,5 +1,5 @@
-import { avatar } from "./avatar.js";
-import { avisar, el } from "./dom.js";
+import { pessoa } from "./avatar.js";
+import { avisar } from "./dom.js";
 import { mensagemDeErro } from "./erros.js";
 import { buscarPerfil, exigirSessao, sair } from "./sessao.js";
 import { supabase } from "./supabase.js";
@@ -19,8 +19,7 @@ function preencher() {
 }
 
 function exibir() {
-  const pessoa = [el("strong", {}, perfil.nome), el("span", {}, `@${perfil.usuario}`)];
-  $("foto").replaceChildren(avatar(perfil, { tamanho: "g" }), ...pessoa);
+  $("foto").replaceChildren(pessoa(perfil, { tamanho: "g" }));
 }
 
 // Trava o botão enquanto envia. `enviar` devolve o texto de sucesso ou lança o erro.

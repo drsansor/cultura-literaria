@@ -55,7 +55,7 @@ test("sem perfil, toda página leva à configuração e salvar leva ao menu", as
   await expect(page.getByLabel("@usuário")).toHaveValue(usuario);
   await page.getByRole("button", { name: "Salvar" }).click();
   await page.waitForURL("**/menu.html");
-  await expect(page.getByText(pessoa.email)).toBeVisible();
+  await expect(page.getByText(`@${usuario}`)).toBeVisible();
   expect(await perfilDe(pessoa)).toEqual({ nome: "Ana Exemplo", usuario, foto_path: null });
 });
 

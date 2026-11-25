@@ -27,9 +27,10 @@ test("login, sessão ao recarregar e sair", async ({ page }) => {
   await entrar(page, usuario);
   await expect(page).toHaveURL(/menu\.html$/);
   await page.reload();
-  await expect(page.getByText(usuario.email)).toBeVisible();
+  await expect(page.getByText(`@${usuario.usuario}`)).toBeVisible();
   await page.goto("/");
   await page.waitForURL("**/menu.html");
+  await page.getByRole("link", { name: "Configuração" }).click();
   await page.getByRole("button", { name: "Sair" }).click();
   await page.waitForURL((endereco) => endereco.pathname === "/");
   await page.goto("/menu.html");
