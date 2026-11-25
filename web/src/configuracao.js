@@ -1,6 +1,5 @@
 import { pessoa } from "./avatar.js";
-import { avisar } from "./dom.js";
-import { mensagemDeErro } from "./erros.js";
+import { aoEnviar, avisar } from "./dom.js";
 import { buscarPerfil, exigirSessao, sair } from "./sessao.js";
 import { conferir, supabase } from "./supabase.js";
 
@@ -20,24 +19,6 @@ function preencher() {
 
 function exibir() {
   $("foto").replaceChildren(pessoa(perfil, { tamanho: "g" }));
-}
-
-// Trava o botão enquanto envia. `enviar` devolve o texto de sucesso ou lança o erro.
-function aoEnviar(form, enviar) {
-  const mensagem = form.querySelector(".mensagem");
-  const botao = form.querySelector(".botao");
-  form.addEventListener("submit", async (evento) => {
-    evento.preventDefault();
-    botao.disabled = true;
-    avisar(mensagem, "");
-    try {
-      avisar(mensagem, await enviar(form.elements));
-    } catch (erro) {
-      avisar(mensagem, mensagemDeErro(erro), true);
-    } finally {
-      botao.disabled = false;
-    }
-  });
 }
 
 const alterar = (dados) =>

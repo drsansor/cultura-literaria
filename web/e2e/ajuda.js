@@ -54,6 +54,17 @@ export async function criarUsuario({ perfil = true } = {}) {
   return { id, email, senha, usuario };
 }
 
+// Cria linhas só para o teste e as apaga no fim.
+export async function comLinhas(tabela, linhas, usar) {
+  const { data, error } = await admin.from(tabela).insert(linhas).select("id");
+  if (error) throw error;
+  try {
+    await usar(data.map(({ id }) => id));
+  } finally {
+    await admin.from(tabela).delete().in("id", data.map(({ id }) => id));
+  }
+}
+
 export async function preencher(page, email, senha) {
   await page.getByLabel("E-mail").fill(email);
   await page.getByLabel("Senha").fill(senha);
@@ -69,10 +80,12 @@ export async function entrar(page, usuario) {
 // O Chrome pode entregar um quadro antigo logo após mudar o tamanho: só vale a imagem que se repete.
 async function capturar(page, caminho) {
   await page.evaluate(() => document.fonts.ready);
+  // Diálogo modal cobre a janela, não a página: a imagem inteira mostraria o que ninguém vê.
+  const fullPage = !(await page.locator("dialog[open]").count());
   let anterior = null;
   for (let tentativa = 0; tentativa < 10; tentativa++) {
     await page.waitForTimeout(200);
-    const atual = await page.screenshot({ fullPage: true });
+    const atual = await page.screenshot({ fullPage });
     if (anterior?.equals(atual)) return writeFileSync(caminho, atual);
     anterior = atual;
   }

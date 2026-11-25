@@ -18,6 +18,33 @@
       <p id="mensagem" class="mensagem" role="status">Carregando…</p>
       <ul id="selos" class="selos"></ul>
     </main>
+
+    <dialog id="dialogo" class="quadro dialogo" aria-labelledby="titulo-dialogo">
+      <form method="dialog" class="fechar"><button class="discreto">Fechar</button></form>
+      <h2 id="titulo-dialogo"></h2>
+      <p id="resumo"></p>
+      <p id="aviso" class="mensagem" role="status"></p>
+      <!-- method="post" impede que o texto vá para a URL se o JS não carregar -->
+      <form id="form-avaliacao" class="campos" method="post" hidden>
+        <fieldset class="notas">
+          <legend>Sua nota</legend>
+          <label><input type="radio" name="nota" value="1" required /> 1</label>
+          <label><input type="radio" name="nota" value="2" /> 2</label>
+          <label><input type="radio" name="nota" value="3" /> 3</label>
+          <label><input type="radio" name="nota" value="4" /> 4</label>
+          <label><input type="radio" name="nota" value="5" /> 5</label>
+        </fieldset>
+        <label>
+          Comentário
+          <textarea name="comentario" maxlength="1000" rows="4" required></textarea>
+        </label>
+        <div class="acoes">
+          <button class="botao">Salvar</button>
+          <button id="apagar" class="discreto" type="button" hidden>Apagar</button>
+        </div>
+      </form>
+      <ul id="avaliacoes" class="falas"></ul>
+    </dialog>
     <script type="module" src="/src/locais.js"></script>
   </body>
 </html>

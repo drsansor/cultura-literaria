@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { importar, lerDados } from "../../scripts/importar.mjs";
-import { admin, conferirPagina, criarUsuario, entrar, expect, test } from "./ajuda.js";
+import { admin, comLinhas, conferirPagina, criarUsuario, entrar, expect, test } from "./ajuda.js";
 
 const dados = lerDados();
 const selos = (page) => page.getByRole("main").getByRole("listitem");
@@ -9,17 +9,6 @@ const selo = (page, nome) => selos(page).filter({ has: page.getByRole("heading",
 async function abrir(page, endereco) {
   await entrar(page, await criarUsuario());
   await page.goto(endereco);
-}
-
-// Cria linhas só para o teste e as apaga no fim.
-async function comLinhas(tabela, linhas, usar) {
-  const { data, error } = await admin.from(tabela).insert(linhas).select("id");
-  if (error) throw error;
-  try {
-    await usar();
-  } finally {
-    await admin.from(tabela).delete().in("id", data.map(({ id }) => id));
-  }
 }
 
 test("importar duas vezes não duplica nem apaga o que já existe", async () => {
@@ -142,8 +131,8 @@ test("lista vazia e sem rede dizem o que fazer", async ({ page, erros }) => {
   erros.permitir(/\/rest\/v1\//, /ERR_FAILED/);
   await entrar(page, await criarUsuario());
   for (const [endereco, tabela, vazio, nome] of [
-    ["/locais.html?tipo=sebo", "locais", "Ainda não há sebos nesta lista. Volte em breve.", "sebos"],
-    ["/locais.html?tipo=biblioteca", "locais", "Ainda não há bibliotecas nesta lista. Volte em breve.", "bibliotecas"],
+    ["/locais.html?tipo=sebo", "locais_com_nota", "Ainda não há sebos nesta lista. Volte em breve.", "sebos"],
+    ["/locais.html?tipo=biblioteca", "locais_com_nota", "Ainda não há bibliotecas nesta lista. Volte em breve.", "bibliotecas"],
     ["/influenciadores.html", "influenciadores", "Ainda não há influenciadores nesta lista. Volte em breve.", "influenciadores"],
   ]) {
     await page.route(new RegExp(`/rest/v1/${tabela}`), (rota) => rota.fulfill({ json: [] }));

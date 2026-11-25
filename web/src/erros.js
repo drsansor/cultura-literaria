@@ -9,6 +9,7 @@ const MENSAGENS = {
   same_password: "A nova senha precisa ser diferente da atual.",
   foto_tipo: "Escolha uma imagem JPG, PNG ou WebP.",
   foto_tamanho: "A foto precisa ter até 2 MB.",
+  avaliacoes_local_id_autor_id_key: "Você já avaliou este lugar. Feche e abra de novo para editar.",
   perfis_usuario_key: "Este @usuário já está em uso.",
   23514: "Confira os campos e tente de novo.",
   42501: "Você não tem permissão para fazer isso.",
