@@ -1,5 +1,5 @@
 import { pessoa } from "./avatar.js";
-import { aoEnviar, avisar, confirmar, el, naoEncontrada, titular } from "./dom.js";
+import { aoEnviar, avisar, confirmar, contar, el, naoEncontrada, titular } from "./dom.js";
 import { mensagemDeErro } from "./erros.js";
 import { exigirPerfil } from "./sessao.js";
 import { conferir, supabase } from "./supabase.js";
@@ -21,7 +21,7 @@ let minha = null;
 function resumir({ media, total }) {
   if (!total) return "Ainda sem avaliações";
   const nota = media.toLocaleString("pt-BR", { minimumFractionDigits: 1 });
-  return `Média ${nota} de 5, com ${total} ${total === 1 ? "avaliação" : "avaliações"}`;
+  return `Média ${nota} de 5, com ${contar(total, "avaliação", "avaliações")}`;
 }
 
 function selo(local) {

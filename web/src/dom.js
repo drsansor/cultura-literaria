@@ -16,6 +16,8 @@ export function avisar(elemento, texto, erro = false) {
   elemento.classList.toggle("erro", erro);
 }
 
+export const contar = (total, um, varios) => `${total} ${total === 1 ? um : varios}`;
+
 export function titular(titulo) {
   document.querySelector("h1").textContent = titulo;
   document.title = `${titulo} | A Crise Literária no Brasil`;

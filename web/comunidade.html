@@ -16,7 +16,31 @@
     </header>
     <main>
       <p id="mensagem" class="mensagem" role="status">Carregando…</p>
-      <div id="feed" class="feed"></div>
+      <section class="secao" aria-labelledby="titulo-grupos">
+        <h2 id="titulo-grupos">Grupos</h2>
+        <p id="aviso-grupos" class="mensagem" role="status">Carregando…</p>
+        <ul id="grupos" class="selos"></ul>
+        <details class="criar">
+          <summary class="botao">Criar grupo</summary>
+          <!-- method="post" impede que os dados vão para a URL se o JS não carregar -->
+          <form id="form-grupo" class="quadro" method="post" aria-label="Criar grupo">
+            <label>
+              Nome do grupo
+              <input name="nome" maxlength="60" pattern=".*\S.*" title="Escreva o nome do grupo." autocomplete="off" required />
+            </label>
+            <label>
+              Descrição (se quiser)
+              <textarea name="descricao" maxlength="300" rows="3"></textarea>
+            </label>
+            <p class="mensagem" role="status"></p>
+            <button class="botao">Criar</button>
+          </form>
+        </details>
+      </section>
+      <section class="secao" aria-labelledby="titulo-feed">
+        <h2 id="titulo-feed">Publicações</h2>
+        <div id="feed" class="feed"></div>
+      </section>
     </main>
     <script type="module" src="/src/comunidade.js"></script>
   </body>

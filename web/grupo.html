@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grupo | A Crise Literária no Brasil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Rammetto+One&display=swap" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="conteudo">
+    <header class="cabecalho">
+      <a class="voltar" href="/menu.html">Voltar ao menu</a>
+      <h1>Grupo</h1>
+    </header>
+    <main>
+      <p id="mensagem" class="mensagem" role="status">Carregando…</p>
+      <section id="dados" class="secao" aria-label="Sobre o grupo" hidden>
+        <div class="quadro">
+          <p id="descricao" class="descricao"></p>
+          <div id="criador"></div>
+          <p><strong id="participantes"></strong></p>
+          <p id="convite">Entre no grupo para publicar e comentar.</p>
+          <p id="aviso" class="mensagem" role="status"></p>
+          <div class="acoes">
+            <button id="entrar" class="botao" type="button">Entrar</button>
+            <button id="sair" class="discreto" type="button">Sair</button>
+            <button id="apagar" class="discreto" type="button">Apagar grupo</button>
+          </div>
+          <a class="ligacao" href="/comunidade.html">Ver todos os grupos</a>
+        </div>
+      </section>
+      <div id="feed" class="feed"></div>
+    </main>
+    <script type="module" src="/src/grupo.js"></script>
+  </body>
+</html>

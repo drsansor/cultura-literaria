@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { admin, comLinhas, conferirPagina, criarUsuario, entrar, expect, test } from "./ajuda.js";
+import { admin, comLinhas, conferirPagina, criarUsuario, entrar, expect, pessoasDoTeste, test } from "./ajuda.js";
 
 const form = (page) => page.getByRole("form", { name: "Nova publicação" });
 const publicacoes = (page) => page.locator("[data-publicacao]");
@@ -9,17 +9,7 @@ const doAutor = async ({ id }) => (await admin.from("publicacoes").select("*").e
 const semRede = "Não foi possível conectar. Verifique sua internet e tente de novo.";
 
 // O feed é de todos: cada pessoa criada aqui some no fim, com o que escreveu.
-const pessoas = [];
-test.afterEach(async () => {
-  for (const { id } of pessoas.splice(0)) await admin.auth.admin.deleteUser(id);
-});
-
-async function nova(nome) {
-  const pessoa = await criarUsuario();
-  pessoas.push(pessoa);
-  if (nome) await admin.from("perfis").update({ nome }).eq("id", pessoa.id);
-  return pessoa;
-}
+const nova = pessoasDoTeste();
 
 async function abrir(page, pessoa) {
   pessoa ??= await nova();

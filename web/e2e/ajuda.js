@@ -54,6 +54,20 @@ export async function criarUsuario({ perfil = true } = {}) {
   return { id, email, senha, usuario };
 }
 
+// Devolve a função que cria pessoas; todas somem no fim de cada teste, com o que escreveram.
+export function pessoasDoTeste() {
+  const pessoas = [];
+  test.afterEach(async () => {
+    for (const { id } of pessoas.splice(0)) await admin.auth.admin.deleteUser(id);
+  });
+  return async (nome) => {
+    const pessoa = await criarUsuario();
+    pessoas.push(pessoa);
+    if (nome) await admin.from("perfis").update({ nome }).eq("id", pessoa.id);
+    return pessoa;
+  };
+}
+
 // Cria linhas só para o teste e as apaga no fim.
 export async function comLinhas(tabela, linhas, usar) {
   const { data, error } = await admin.from(tabela).insert(linhas).select("id");

@@ -231,8 +231,16 @@ body {
 .selos-largos { width: min(100%, 44rem); }
 .selos-largos .selo { min-height: 0; }
 
-.feed { width: 100%; display: grid; justify-items: center; gap: var(--espaco-4); }
-.feed > .quadro { width: min(100%, 44rem); }
+.secao, .feed { width: 100%; display: grid; justify-items: center; gap: var(--espaco-4); }
+.secao h2:not(.quadro h2) { margin: 0; font: 2rem/1.2 var(--fonte-titulo); text-align: center; }
+.secao + .secao { margin-top: var(--espaco-4); }
+.criar { width: min(100%, 44rem); }
+.criar summary { width: fit-content; margin: 0 auto var(--espaco-3); list-style: none; }
+.criar summary::-webkit-details-marker { display: none; }
+.descricao { white-space: pre-line; overflow-wrap: anywhere; }
+.descricao:empty { display: none; }
+#criador { display: grid; justify-items: center; gap: var(--espaco-1); overflow-wrap: anywhere; }
+.feed > .quadro, .secao > .quadro { width: min(100%, 44rem); }
 
 .miolo.publicacao { padding: var(--espaco-3); grid-template-rows: none; justify-items: start; text-align: start; }
 .publicacao p { margin: 0; white-space: pre-line; }
@@ -240,7 +248,7 @@ body {
 .publicacao .quadro { padding: var(--espaco-3); border-radius: 0; }
 .publicacao summary { width: fit-content; margin-left: auto; list-style: none; }
 .publicacao summary::-webkit-details-marker { display: none; }
-.publicacao .etiqueta { display: grid; place-items: center; }
+.etiqueta { display: grid; place-items: center; text-decoration: none; }
 .topo { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--espaco-2); }
 .topo .pessoa { min-width: 0; max-width: 100%; }
 .topo time { font-size: 0.875rem; }
@@ -273,7 +281,7 @@ body {
   background: var(--rosa);
 }
 
-.miolo h2 { margin: 0; padding: var(--espaco-3) var(--espaco-2) 0; font: 1.5rem/1.2 var(--fonte-titulo); }
+.miolo h2, .miolo h3 { margin: 0; padding: var(--espaco-3) var(--espaco-2) 0; font: 1.5rem/1.2 var(--fonte-titulo); }
 
 .resumo { margin: 0; padding: 0 var(--espaco-2); }
 
@@ -408,8 +416,8 @@ html:has(.dialogo[open]) { overflow: hidden; }
 .botao:hover { background: var(--rosa-claro); }
 .botoes .botao { min-height: calc(1.5 * var(--toque)); font-size: clamp(1.125rem, 2.4vw, 1.75rem); }
 .menu .botao:focus-visible { outline-color: var(--creme); }
-.conteudo main > .botao, .feed > .botao { color: var(--creme); background: var(--marrom); }
-.conteudo main > .botao:hover, .feed > .botao:hover { background: var(--marrom-escuro); }
+.conteudo main > .botao, .feed > .botao, .criar > .botao { color: var(--creme); background: var(--marrom); }
+.conteudo main > .botao:hover, .feed > .botao:hover, .criar > .botao:hover { background: var(--marrom-escuro); }
 button:disabled { opacity: 0.6; cursor: wait; }
 
 :focus-visible { outline: 3px solid var(--vinho); outline-offset: 2px; }
@@ -417,7 +425,7 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .mensagem:empty { display: none; }
 .mensagem.erro { color: var(--vinho); font-weight: 700; }
 
-.conteudo main > .mensagem, .feed > .mensagem {
+.conteudo main > .mensagem, .feed > .mensagem, .secao > .mensagem {
   padding: var(--espaco-3) var(--espaco-4);
   margin: 0;
   background: var(--branco);
