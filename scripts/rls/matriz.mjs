@@ -17,6 +17,7 @@ const grupo = ({ id }) => ({ nome: `Grupo ${uuid()}`, descricao: "Teste", criado
 const membro = (grupo_id, { id }) => ({ grupo_id, perfil_id: id });
 const publicacao = ({ id }, grupo_id = null) => ({ autor_id: id, grupo_id, texto: "Olá", livro_titulo: "Livro", livro_autor: "Autora" });
 const comentario = (publicacao_id, { id }) => ({ publicacao_id, autor_id: id, texto: "Oi" });
+const amizade = (de, para) => ({ solicitante_id: de.id, destinatario_id: para.id });
 
 async function criar(ctx, tabela, linhas) {
   const { data, error } = await ctx.servico.from(tabela).insert(linhas).select("*");
@@ -215,11 +216,113 @@ export const tabelas = {
       },
     },
   },
+
+  amizades: {
+    ler: ["id", "solicitante_id", "destinatario_id", "status", "criado_em"],
+    inserir: ["solicitante_id", "destinatario_id"],
+    alterar: ["status"],
+    apagar: "dono", // qualquer um dos dois participantes
+    alheioVisivel: false,
+    semear: async (ctx) => {
+      const [ana, bia] = await criar(ctx, "amizades", [amizade(ctx.caio, ctx.ana), amizade(ctx.bia, ctx.caio)]);
+      return { ana: { id: ana.id }, bia: { id: bia.id } };
+    },
+    nova: (ctx, quem) => amizade(ctx[quem], ctx.admin),
+    emNomeDeOutro: (ctx) => [amizade(ctx.bia, ctx.admin), amizade(ctx.bia, ctx.ana), amizade(ctx.caio, ctx.bia)],
+    mudanca: { status: "aceita" },
+    extras: {
+      "pedido: só a destinatária aceita, uma vez, e só as duas enxergam": async (ctx, { de, real, negado, permitido }) => {
+        const pedido = amizade(ctx.ana, ctx.bia);
+        const status = async () => (await real(pedido)).map((linha) => linha.status).join();
+        negado(await de("ana").insert({ ...pedido, status: "aceita" }), "nascer aceita");
+        permitido(await de("ana").insert(pedido), "ana pede");
+        for (const quem of ["ana", "caio", "admin"]) await de(quem).update({ status: "aceita" }).match(pedido);
+        assert.equal(await status(), "pendente", "só a destinatária aceita");
+        assert.equal((await de("caio").select("id").match(pedido)).data.length, 0, "terceiro não lê");
+        await de("caio").delete().match(pedido);
+        assert.equal(await status(), "pendente", "terceiro não apaga");
+        assert.equal((await de("bia").insert(amizade(ctx.bia, ctx.ana))).error?.code, "23505", "pedido inverso");
+        assert.equal((await de("ana").insert(amizade(ctx.ana, ctx.ana))).error?.code, "23514", "pedir a si");
+        negado(await de("bia").update({ status: "pendente" }).match(pedido), "pendente para pendente");
+        negado(await de("bia").update({ status: "recusada" }).match(pedido), "status inventado");
+        for (const coluna of ["solicitante_id", "destinatario_id"]) {
+          negado(await de("bia").update({ status: "aceita", [coluna]: ctx.admin.id }).match(pedido), `aceitar trocando ${coluna}`);
+        }
+        permitido(await de("bia").update({ status: "aceita" }).match(pedido), "bia aceita");
+        assert.equal(await status(), "aceita");
+        for (const quem of ["ana", "bia"]) await de(quem).update({ status: "pendente" }).match(pedido);
+        assert.equal(await status(), "aceita", "não volta para pendente");
+        permitido(await de("bia").delete().match(pedido), "a destinatária desfaz");
+        assert.equal(await status(), "");
+        permitido(await de("ana").insert(pedido), "ana pede de novo");
+        permitido(await de("ana").delete().match(pedido), "a solicitante cancela");
+        assert.equal(await status(), "");
+      },
+    },
+  },
+
+  notificacoes: {
+    ler: ["id", "para_id", "de_id", "tipo", "publicacao_id", "lida", "criado_em"],
+    inserir: [],
+    alterar: ["lida"],
+    apagar: "dono",
+    alheioVisivel: false,
+    semear: async (ctx) => {
+      const [ana, bia] = await criar(ctx, "notificacoes", [ctx.ana, ctx.bia].map(({ id }) => ({ para_id: id, de_id: ctx.caio.id, tipo: "pedido_amizade" })));
+      return { ana: { id: ana.id }, bia: { id: bia.id } };
+    },
+    nova: (ctx, quem) => ({ para_id: ctx.bia.id, de_id: ctx[quem].id, tipo: "comentario" }),
+    emNomeDeOutro: (ctx) => [
+      { para_id: ctx.bia.id, de_id: ctx.caio.id, tipo: "amizade_aceita" },
+      { para_id: ctx.ana.id, de_id: ctx.bia.id, tipo: "pedido_amizade" },
+    ],
+    mudanca: { lida: true },
+    extras: {
+      "pedido, aceite e comentário avisam só a pessoa certa": async (ctx, { de, real, permitido }) => {
+        const ultimas = async (quem, tipo) => (await real({ para_id: ctx[quem].id, tipo })).filter(({ de_id }) => [ctx.ana.id, ctx.bia.id].includes(de_id));
+        // Os ataques de amizades e comentários já deixaram avisos entre as duas.
+        permitido(await ctx.servico.from("notificacoes").delete().in("de_id", [ctx.ana.id, ctx.bia.id]), "limpar");
+        const pedido = amizade(ctx.ana, ctx.bia);
+        permitido(await ctx.ana.cliente.from("amizades").insert(pedido), "ana pede");
+        const [aviso, ...mais] = await ultimas("bia", "pedido_amizade");
+        assert.equal(aviso.de_id, ctx.ana.id);
+        assert.equal(aviso.lida, false);
+        assert.deepEqual(mais, []);
+        assert.deepEqual(await ultimas("ana", "pedido_amizade"), [], "quem pede não é avisada");
+        assert.equal((await de("bia").select("id").match({ id: aviso.id })).data.length, 1, "bia lê");
+        for (const quem of ["ana", "caio", "admin"]) {
+          assert.deepEqual((await de(quem).select("id").match({ id: aviso.id })).data, [], `${quem} lê o aviso de bia`);
+          await de(quem).update({ lida: true }).match({ id: aviso.id });
+          await de(quem).delete().match({ id: aviso.id });
+        }
+        assert.deepEqual(await real({ id: aviso.id }), [aviso], "o aviso de bia não mudou");
+
+        permitido(await ctx.bia.cliente.from("amizades").update({ status: "aceita" }).match(pedido), "bia aceita");
+        assert.deepEqual((await ultimas("ana", "amizade_aceita")).map(({ de_id }) => de_id), [ctx.bia.id]);
+        assert.deepEqual(await ultimas("bia", "amizade_aceita"), [], "quem aceita não é avisada");
+        permitido(await ctx.bia.cliente.from("amizades").delete().match(pedido), "bia desfaz");
+
+        const { data, error } = await ctx.bia.cliente.from("publicacoes").insert(publicacao(ctx.bia)).select("id").single();
+        if (error) throw error;
+        const sobre = { publicacao_id: data.id };
+        permitido(await ctx.bia.cliente.from("comentarios").insert(comentario(data.id, ctx.bia)), "bia comenta na sua");
+        assert.deepEqual(await real(sobre), [], "comentar na própria não avisa");
+        permitido(await ctx.ana.cliente.from("comentarios").insert(comentario(data.id, ctx.ana)), "ana comenta");
+        assert.deepEqual((await real(sobre)).map(({ para_id, de_id, tipo }) => ({ para_id, de_id, tipo })), [{ para_id: ctx.bia.id, de_id: ctx.ana.id, tipo: "comentario" }]);
+        assert.equal((await real({ de_id: ctx.ana.id, tipo: "comentario" })).length, 1, "um comentário, um aviso");
+        assert.deepEqual((await de("ana").select("id").match(sobre)).data, [], "quem comenta não lê o aviso");
+        permitido(await ctx.bia.cliente.from("publicacoes").delete().match(data), "bia apaga a publicação");
+        assert.deepEqual(await real(sobre), [], "o aviso foi junto");
+      },
+    },
+  },
 };
 
 // Funções públicas: o valor devolvido a cada ator, ou o código do erro em { erro }.
 export const funcoes = {
   sou_admin: { anon: { erro: "42501" }, semPerfil: false, ana: false, admin: true },
+  // Quem apaga a própria conta está em `atacar.mjs`, "excluir conta".
+  excluir_minha_conta: { anon: { erro: "42501" }, excluida: null },
 };
 
 export const views = {

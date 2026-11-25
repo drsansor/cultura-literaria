@@ -34,6 +34,7 @@ const ctx = {
   semPerfil: await ator("semPerfil"),
   ana: await ator("ana", {}),
   bia: await ator("bia", {}),
+  caio: await ator("caio", {}),
   admin: await ator("admin", { admin: true }),
   excluida: await ator("excluida", {}),
 };
@@ -166,15 +167,16 @@ for (const [nome, regra] of Object.entries(tabelas)) {
 
     test("só o dono altera", async () => {
       if (!regra.alterar.length) return;
+      // Antes dos ataques: aceitar amizade só vale uma vez, e o ataque em massa também alcança a linha de ana.
+      const propria = await em(de("ana").update(regra.mudanca), chave.ana).select(campos.join());
+      permitido(propria, "ana altera a sua");
+      assert.equal(propria.data.length, 1);
       const antes = await real(chave.bia);
       for (const quem of ["ana", "admin", "semPerfil", "excluida"]) {
         await em(de(quem).update(regra.mudanca), chave.bia);
         await tudo(de(quem).update(regra.mudanca));
         assert.deepEqual(await real(chave.bia), antes, `${quem} alterou a linha de bia`);
       }
-      const propria = await em(de("ana").update(regra.mudanca), chave.ana).select(campos.join());
-      permitido(propria, "ana altera a sua");
-      assert.equal(propria.data.length, 1);
     });
 
     test("quem não tem perfil não insere", async () => {
@@ -269,6 +271,54 @@ describe("funções", () => {
       assert.equal(codigo(resposta), "PGRST106", schema);
     }
     assert.equal(codigo(await ctx.ana.cliente.schema("privado").rpc("eh_admin")), "PGRST106");
+  });
+});
+
+describe("excluir conta", () => {
+  test("apaga só a própria conta, e o token antigo não serve para mais nada", async () => {
+    const dora = await ator("dora", {});
+    const lista = async (nome, coluna, id) => (await servico.from(nome).select("*").eq(coluna, id)).data.length;
+    const { data: grupo } = await dora.cliente.from("grupos").insert({ nome: `Da dora ${dora.id}`, criador_id: dora.id }).select("id").single();
+    const { data: publicacao } = await dora.cliente.from("publicacoes").insert({ autor_id: dora.id, grupo_id: grupo.id, texto: "Oi" }).select("id").single();
+    permitido(await dora.cliente.from("comentarios").insert({ publicacao_id: publicacao.id, autor_id: dora.id, texto: "Oi" }), "dora comenta");
+    permitido(await dora.cliente.from("amizades").insert({ solicitante_id: dora.id, destinatario_id: ctx.bia.id }), "dora pede");
+    const bia = async () => (await servico.from("perfis").select("*").eq("id", ctx.bia.id)).data;
+    const antes = await bia();
+
+    // Um id por parâmetro não pode existir, nem apagar outra pessoa.
+    for (const nome of ["id", "pessoa", "usuario", "perfil_id"]) {
+      assert.equal(codigo(await dora.cliente.rpc("excluir_minha_conta", { [nome]: ctx.bia.id })), "PGRST202", nome);
+    }
+    negado(await ctx.anon.cliente.rpc("excluir_minha_conta"), "anon");
+    assert.deepEqual(await bia(), antes);
+    assert.equal(await lista("perfis", "id", dora.id), 1);
+
+    permitido(await dora.cliente.rpc("excluir_minha_conta"), "dora apaga a sua");
+    for (const [nome, coluna] of [["perfis", "id"], ["grupos", "criador_id"], ["grupo_membros", "perfil_id"], ["publicacoes", "autor_id"],
+      ["comentarios", "autor_id"], ["amizades", "solicitante_id"], ["notificacoes", "de_id"]]) {
+      assert.equal(await lista(nome, coluna, dora.id), 0, `${nome} de dora`);
+    }
+    assert.notEqual((await servico.auth.admin.getUserById(dora.id)).error, null, "o usuário sumiu");
+    assert.deepEqual(await bia(), antes, "bia continua");
+
+    for (const nome of [...Object.keys(tabelas), ...Object.keys(views)]) {
+      const regra = tabelas[nome] ?? views[nome];
+      assert.deepEqual((await dora.cliente.from(nome).select(regra.ler.join())).data, [], `token antigo lê ${nome}`);
+    }
+    for (const [nome, linha] of [["perfis", { id: dora.id, nome: "Volta", usuario: `volta_${dora.id.slice(0, 8)}` }],
+      ["publicacoes", { autor_id: dora.id, texto: "Oi" }], ["grupos", { nome: `Volta ${dora.id}`, criador_id: dora.id }],
+      ["amizades", { solicitante_id: dora.id, destinatario_id: ctx.bia.id }]]) {
+      assert.notEqual((await dora.cliente.from(nome).insert(linha)).error, null, `token antigo grava em ${nome}`);
+    }
+    permitido(await dora.cliente.rpc("excluir_minha_conta"), "repetir não falha");
+    assert.deepEqual(await bia(), antes, "repetir não apaga ninguém");
+  });
+
+  test("quem não tem perfil também apaga só a sua", async () => {
+    const novato = await ator("novato");
+    permitido(await novato.cliente.rpc("excluir_minha_conta"), "novato apaga a sua");
+    assert.notEqual((await servico.auth.admin.getUserById(novato.id)).error, null);
+    permitido(await servico.auth.admin.getUserById(ctx.semPerfil.id), "outra sem perfil continua");
   });
 });
 
