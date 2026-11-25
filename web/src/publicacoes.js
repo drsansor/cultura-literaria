@@ -10,7 +10,7 @@ const CAMPOS_COMENTARIO = `id, texto, autor:perfis!comentarios_autor_id_fkey(${A
 
 const mensagem = (texto = "") => el("p", { className: "mensagem", role: "status" }, texto);
 const campo = (rotulo, entrada) => el("label", {}, rotulo, entrada);
-const quando = (data) => el("time", { dateTime: data }, new Date(data).toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" }));
+export const quando = (data) => el("time", { dateTime: data }, new Date(data).toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" }));
 
 function botaoApagar(texto, pergunta, aviso, apagar) {
   const botao = el("button", { className: "discreto", type: "button" }, texto);
