@@ -342,6 +342,8 @@ body {
 .icone-youtube { mask: url("/icones/youtube.svg") center / contain no-repeat; }
 .icone-tiktok { mask: url("/icones/tiktok.svg") center / contain no-repeat; }
 
+.quadro-inteiro { grid-column: 1 / -1; }
+
 /* Ocupa duas linhas para o próximo quadro subir ao lado dele */
 .quadro-alto { grid-row: span 2; }
 

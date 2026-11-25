@@ -18,11 +18,30 @@ function preencher() {
 }
 
 function exibir() {
+  $("dica-excluir").textContent = `@${perfil.usuario}`;
+  liberarExclusao();
   $("foto").replaceChildren(pessoa(perfil, { tamanho: "g" }));
 }
 
 const alterar = (dados) =>
   conferir(supabase.from("perfis").update(dados).eq("id", perfil.id).select("id, nome, usuario, foto_path").single());
+
+const { confirmacao } = $("form-excluir").elements;
+const confirmou = () => confirmacao.value.trim().toLowerCase().replace(/^@/, "") === perfil.usuario;
+
+function liberarExclusao() {
+  $("form-excluir").querySelector(".botao").disabled = !confirmou();
+}
+
+// Só termina com a pasta vazia. shortcut: o site não cria subpastas; se houver uma, para com erro e a conta continua.
+async function apagarFotos() {
+  for (;;) {
+    const arquivos = await conferir(fotos.list(perfil.id));
+    if (!arquivos.length) return;
+    const apagados = await conferir(fotos.remove(arquivos.map(({ name }) => `${perfil.id}/${name}`)));
+    if (!apagados.length) throw { code: "foto_nao_apagada" };
+  }
+}
 
 usuario.addEventListener("input", () => {
   const limpo = usuario.value.toLowerCase().replaceAll("@", "");
@@ -32,7 +51,10 @@ usuario.addEventListener("input", () => {
 aoEnviar($("form-perfil"), async () => {
   const dados = { nome: nome.value.trim(), usuario: usuario.value };
   if (!perfil) {
-    await conferir(supabase.from("perfis").insert({ id: sessao.user.id, ...dados }));
+    const { error } = await supabase.from("perfis").insert({ id: sessao.user.id, ...dados });
+    // A conta foi excluída em outra aba: este login não serve mais.
+    if (error?.code === "23503") return sair();
+    if (error) throw error;
     location.replace("/menu.html");
     return "Perfil salvo.";
   }
@@ -69,12 +91,22 @@ aoEnviar($("form-senha"), async ({ senha }) => {
   return "Senha trocada.";
 });
 
+confirmacao.addEventListener("input", liberarExclusao);
+
+// Primeiro as fotos: sem a conta, ninguém mais teria permissão para apagá-las.
+aoEnviar($("form-excluir"), async () => {
+  if (!confirmou()) return "";
+  await apagarFotos();
+  await conferir(supabase.rpc("excluir_minha_conta"));
+  return sair();
+});
+
 $("sair").addEventListener("click", sair);
 
 if (perfil) {
   $("titulo-perfil").textContent = "Perfil";
   $("form-perfil").querySelector(".botao").textContent = "Salvar perfil";
-  for (const id of ["form-foto", "form-senha", "sair"]) $(id).hidden = false;
+  for (const id of ["form-foto", "form-senha", "form-excluir", "sair"]) $(id).hidden = false;
   preencher();
   exibir();
 }
