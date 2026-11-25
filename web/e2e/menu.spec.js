@@ -58,13 +58,17 @@ test("no celular o perfil vem depois dos botões; no computador, ao lado", async
   await abrir(page);
   const caixa = (alvo) => alvo.boundingBox();
   const ultimo = page.getByRole("link", { name: "Comunidade" });
-  await page.setViewportSize({ width: 390, height: 844 });
-  let [botao, lado] = [await caixa(ultimo), await caixa(perfil(page))];
-  expect(lado.y).toBeGreaterThanOrEqual(botao.y + botao.height);
-  await page.setViewportSize({ width: 1440, height: 900 });
-  [botao, lado] = [await caixa(ultimo), await caixa(perfil(page))];
-  expect(lado.x).toBeGreaterThanOrEqual(botao.x + botao.width);
-  expect(lado.y).toBeLessThan(botao.y);
+  for (const width of [390, 719]) {
+    await page.setViewportSize({ width, height: 844 });
+    const [botao, lado] = [await caixa(ultimo), await caixa(perfil(page))];
+    expect(lado.y, `${width}px`).toBeGreaterThanOrEqual(botao.y + botao.height);
+  }
+  for (const width of [720, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    const [botao, lado] = [await caixa(ultimo), await caixa(perfil(page))];
+    expect(lado.x, `${width}px`).toBeGreaterThanOrEqual(botao.x + botao.width);
+    expect(lado.y, `${width}px`).toBeLessThan(botao.y);
+  }
 });
 
 test("toque de 44 px e foco visível em todos os links", async ({ page }) => {

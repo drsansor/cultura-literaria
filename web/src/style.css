@@ -264,7 +264,7 @@ body {
 .miolo.publicacao { padding: var(--espaco-3); grid-template-rows: none; justify-items: start; text-align: start; }
 .publicacao p { margin: 0; white-space: pre-line; }
 .publicacao details, .publicacao .topo, .publicacao .livro { width: 100%; }
-.publicacao .quadro { padding: var(--espaco-3); border-radius: 0; }
+.publicacao .quadro { margin-top: var(--espaco-2); padding: var(--espaco-3); }
 .publicacao > .etiqueta { justify-self: end; }
 .publicacao summary { width: fit-content; margin-left: auto; list-style: none; }
 .publicacao summary::-webkit-details-marker { display: none; }
