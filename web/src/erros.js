@@ -7,6 +7,7 @@ const MENSAGENS = {
   email_address_invalid: "Este e-mail não é válido. Confira o endereço.",
   validation_failed: "Este e-mail não é válido. Confira o endereço.",
   same_password: "A nova senha precisa ser diferente da atual.",
+  livro_sem_titulo: "Para informar o autor, escreva também o título do livro.",
   foto_tipo: "Escolha uma imagem JPG, PNG ou WebP.",
   foto_tamanho: "A foto precisa ter até 2 MB.",
   avaliacoes_local_id_autor_id_key: "Você já avaliou este lugar. Feche e abra de novo para editar.",
