@@ -232,7 +232,7 @@ body {
 .selos-largos .selo { min-height: 0; }
 
 .secao, .feed { width: 100%; display: grid; justify-items: center; gap: var(--espaco-4); }
-.secao h2:not(.quadro h2) { margin: 0; font: 2rem/1.2 var(--fonte-titulo); text-align: center; }
+.secao h2:not(.quadro h2) { margin: 0; font: clamp(1.5rem, 6vw, 2rem)/1.2 var(--fonte-titulo); text-align: center; }
 .secao + .secao { margin-top: var(--espaco-4); }
 .criar { width: min(100%, 44rem); }
 .criar summary { width: fit-content; margin: 0 auto var(--espaco-3); list-style: none; }
@@ -240,6 +240,10 @@ body {
 .descricao { white-space: pre-line; overflow-wrap: anywhere; }
 .descricao:empty { display: none; }
 #criador { display: grid; justify-items: center; gap: var(--espaco-1); overflow-wrap: anywhere; }
+.pessoas .selo { min-height: 0; }
+.pessoas .miolo { padding: var(--espaco-3); grid-template-rows: 1fr auto; justify-items: stretch; align-items: center; text-align: start; }
+.pessoas .acoes { align-items: center; justify-content: end; }
+.selos:empty { display: none; }
 .feed > .quadro, .secao > .quadro { width: min(100%, 44rem); }
 
 .miolo.publicacao { padding: var(--espaco-3); grid-template-rows: none; justify-items: start; text-align: start; }

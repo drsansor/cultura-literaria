@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amigos | A Crise Literária no Brasil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Rammetto+One&display=swap" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="conteudo">
+    <header class="cabecalho">
+      <a class="voltar" href="/menu.html">Voltar ao menu</a>
+      <h1>Amigos</h1>
+    </header>
+    <main>
+      <p id="mensagem" class="mensagem" role="status">Carregando…</p>
+      <section class="secao" aria-labelledby="titulo-achados">
+        <h2 id="titulo-achados">Buscar pessoas</h2>
+        <form id="form-busca" class="quadro" role="search">
+          <label>
+            @usuário
+            <input name="usuario" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="31" required />
+            <small>Digite o começo do @usuário.</small>
+          </label>
+          <button class="botao">Buscar</button>
+        </form>
+        <p id="aviso-achados" class="mensagem" role="status"></p>
+        <ul id="achados" class="selos pessoas"></ul>
+      </section>
+      <section class="secao" aria-labelledby="titulo-recebidos">
+        <h2 id="titulo-recebidos">Pedidos recebidos</h2>
+        <p id="aviso-recebidos" class="mensagem" role="status"></p>
+        <ul id="recebidos" class="selos pessoas"></ul>
+      </section>
+      <section class="secao" aria-labelledby="titulo-enviados">
+        <h2 id="titulo-enviados">Pedidos enviados</h2>
+        <p id="aviso-enviados" class="mensagem" role="status"></p>
+        <ul id="enviados" class="selos pessoas"></ul>
+      </section>
+      <section class="secao" aria-labelledby="titulo-amigos">
+        <h2 id="titulo-amigos">Amigos</h2>
+        <p id="aviso-amigos" class="mensagem" role="status"></p>
+        <ul id="amigos" class="selos pessoas"></ul>
+      </section>
+    </main>
+    <script type="module" src="/src/amigos.js"></script>
+  </body>
+</html>
