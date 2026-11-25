@@ -8,3 +8,8 @@ export function el(tag, props = {}, ...filhos) {
   elemento.append(...filhos);
   return elemento;
 }
+
+export function avisar(elemento, texto, erro = false) {
+  elemento.textContent = texto;
+  elemento.classList.toggle("erro", erro);
+}

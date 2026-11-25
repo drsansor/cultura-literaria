@@ -12,14 +12,14 @@ test("visual do login e do cadastro", async ({ page }) => {
   await conferirPagina(page, "cadastro");
 });
 
-test("cadastro entra no menu", async ({ page }) => {
+test("cadastro leva ao primeiro acesso", async ({ page }) => {
   const email = `teste-${randomUUID()}@example.com`;
   await page.goto("/");
   await page.getByRole("button", { name: "Criar conta" }).click();
   await preencher(page, email, "senha-boa-123");
   await page.locator("#enviar").click();
-  await page.waitForURL("**/menu.html");
-  await expect(page.getByText(email)).toBeVisible();
+  await page.waitForURL("**/configuracao.html");
+  await expect(page.getByRole("form", { name: "Complete seu perfil" })).toBeVisible();
 });
 
 test("login, sessão ao recarregar e sair", async ({ page }) => {

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Configuração | A Crise Literária no Brasil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Rammetto+One&display=swap" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="conteudo">
+    <header class="cabecalho">
+      <a id="voltar" class="voltar" href="/menu.html">Voltar ao menu</a>
+      <h1>Configuração</h1>
+    </header>
+    <main>
+      <p id="mensagem" class="mensagem" role="status">Carregando…</p>
+      <div id="quadros" class="quadros" hidden>
+        <!-- method="post" impede que os dados vão para a URL se o JS não carregar -->
+        <form id="form-perfil" class="quadro" method="post" aria-labelledby="titulo-perfil">
+          <h2 id="titulo-perfil">Complete seu perfil</h2>
+          <label>
+            Nome
+            <input name="nome" autocomplete="name" maxlength="60" pattern=".*\S.*" title="Escreva seu nome." required />
+          </label>
+          <label>
+            @usuário
+            <input name="usuario" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="30" pattern="[a-z0-9_.]{3,30}" title="De 3 a 30 letras sem acento, números, ponto ou _." required />
+            <small>De 3 a 30 letras sem acento, números, ponto ou _.</small>
+          </label>
+          <p class="mensagem" role="status"></p>
+          <button class="botao">Salvar</button>
+        </form>
+
+        <form id="form-foto" class="quadro quadro-alto" method="post" aria-labelledby="titulo-foto" hidden>
+          <h2 id="titulo-foto">Foto</h2>
+          <div id="foto" class="foto"></div>
+          <label>
+            Escolher foto
+            <input name="foto" type="file" accept="image/jpeg,image/png,image/webp" required />
+            <small>JPG, PNG ou WebP, até 2 MB.</small>
+          </label>
+          <p class="mensagem" role="status"></p>
+          <button class="botao">Salvar foto</button>
+        </form>
+
+        <form id="form-senha" class="quadro" method="post" aria-labelledby="titulo-senha" hidden>
+          <h2 id="titulo-senha">Senha</h2>
+          <label>
+            Nova senha
+            <input name="senha" type="password" autocomplete="new-password" minlength="8" required />
+            <small>Use pelo menos 8 caracteres.</small>
+          </label>
+          <p class="mensagem" role="status"></p>
+          <button class="botao">Trocar senha</button>
+        </form>
+      </div>
+      <button id="sair" class="botao" type="button" hidden>Sair</button>
+    </main>
+    <script type="module" src="/src/configuracao.js"></script>
+  </body>
+</html>

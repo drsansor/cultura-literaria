@@ -1,17 +1,11 @@
-import { supabase } from "./supabase.js";
+import { avisar } from "./dom.js";
+import { exigirPerfil, exigirSessao, sair } from "./sessao.js";
 
-const irParaLogin = () => location.replace("/");
+const $ = (id) => document.getElementById(id);
+const { user } = await exigirSessao();
+await exigirPerfil();
 
-// Só controla a interface: quem protege os dados são as políticas RLS no Supabase.
-const { data } = await supabase.auth.getSession();
-if (!data.session) {
-  irParaLogin();
-} else {
-  document.getElementById("email").textContent = data.session.user.email;
-  document.getElementById("menu").hidden = false;
-}
-
-document.getElementById("sair").addEventListener("click", async () => {
-  await supabase.auth.signOut({ scope: "local" });
-  irParaLogin();
-});
+$("email").textContent = user.email;
+$("sair").addEventListener("click", sair);
+avisar($("mensagem"), "");
+$("menu").hidden = false;

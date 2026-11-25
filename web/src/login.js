@@ -1,3 +1,4 @@
+import { avisar } from "./dom.js";
 import { mensagemDeErro } from "./erros.js";
 import { supabase } from "./supabase.js";
 
@@ -8,10 +9,7 @@ let criando = false;
 
 const irParaMenu = () => location.replace("/menu.html");
 
-function mostrar(texto, erro = false) {
-  $("mensagem").textContent = texto;
-  $("mensagem").classList.toggle("erro", erro);
-}
+const mostrar = (texto, erro) => avisar($("mensagem"), texto, erro);
 
 $("trocar").addEventListener("click", () => {
   criando = !criando;
