@@ -1,0 +1,14 @@
+[
+  {
+    "nome": "Biblioteca Exemplo 1",
+    "localizacao": "Rua Exemplo, 1, Cidade Exemplo"
+  },
+  {
+    "nome": "Biblioteca Exemplo 2",
+    "localizacao": "Rua Exemplo, 2, Cidade Exemplo"
+  },
+  {
+    "nome": "Biblioteca Exemplo 3",
+    "localizacao": "Rua Exemplo, 3, Cidade Exemplo"
+  }
+]

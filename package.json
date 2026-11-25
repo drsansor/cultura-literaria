@@ -12,6 +12,7 @@
     "e2e": "npm run e2e -w web",
     "testar:banco": "supabase test db",
     "verificar": "npm test && supabase db reset --local && supabase db advisors --local --type security --fail-on error && npm run testar:banco && node scripts/cobertura-banco.mjs && npm run testar:rls && npm run build && npm run e2e",
+    "importar": "node scripts/importar.mjs",
     "testar:rls": "node --test scripts/rls/atacar.mjs"
   }
 }

@@ -13,3 +13,13 @@ export function avisar(elemento, texto, erro = false) {
   elemento.textContent = texto;
   elemento.classList.toggle("erro", erro);
 }
+
+export function titular(titulo) {
+  document.querySelector("h1").textContent = titulo;
+  document.title = `${titulo} | A Crise Literária no Brasil`;
+}
+
+export function naoEncontrada() {
+  titular("Página não encontrada");
+  avisar(document.getElementById("mensagem"), "Este endereço não existe. Volte ao menu e escolha uma opção.");
+}

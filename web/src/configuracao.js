@@ -2,7 +2,7 @@ import { pessoa } from "./avatar.js";
 import { avisar } from "./dom.js";
 import { mensagemDeErro } from "./erros.js";
 import { buscarPerfil, exigirSessao, sair } from "./sessao.js";
-import { supabase } from "./supabase.js";
+import { conferir, supabase } from "./supabase.js";
 
 const TIPOS = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp" };
 const TAMANHO_MAXIMO = 2 * 1024 * 1024;
@@ -38,12 +38,6 @@ function aoEnviar(form, enviar) {
       botao.disabled = false;
     }
   });
-}
-
-async function conferir(pedido) {
-  const { data, error } = await pedido;
-  if (error) throw error;
-  return data;
 }
 
 const alterar = (dados) =>
